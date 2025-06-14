@@ -16,13 +16,12 @@
     }
 
     .container {
-      max-width: 8.27in;
-      min-height: 11.69in;
-      margin: 0 auto;
+      max-width: 8.27in; /* A4 width */
+      margin: 20px auto;
       background: #fff;
-      padding: 0.5in;
-      box-shadow: none;
-      border-radius: 0;
+      padding: 20px 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
       page-break-inside: avoid;
     }
 
@@ -103,24 +102,6 @@
       border-top: 1px solid #ddd;
     }
 
-    .btn-download {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #0056b3;
-      color: #fff;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: background-color 0.3s;
-      text-decoration: none;
-    }
-
-    .btn-download:hover {
-      background-color: #003f88;
-    }
-
     .no-print {
       display: block;
     }
@@ -128,6 +109,12 @@
     @media print {
       .no-print {
         display: none !important;
+      }
+      .container {
+        margin: 0;
+        padding: 0.5in;
+        box-shadow: none;
+        border-radius: 0;
       }
       .skills,
       .certifications,
@@ -234,44 +221,7 @@
   </div>
 
   <footer class="no-print">
-    <button class="btn-download" onclick="downloadPDF()">Download PDF</button>
-    <p style="margin-top: 10px;">© 2025 Gourab Mal. All rights reserved.</p>
+    <p>© 2025 Gourab Mal. All rights reserved.</p>
   </footer>
-
-  <script>
-    function downloadPDF() {
-      const element = document.getElementById('cv');
-
-      if (!element) {
-        console.error('Element with ID "cv" not found');
-        return;
-      }
-
-      console.log('Starting PDF generation...');
-
-      const opt = {
-        margin: 0,
-        filename: 'Gourab_Mal_CV.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 1, useCORS: true },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-      };
-
-      setTimeout(() => {
-        console.log('Rendering content with html2canvas...');
-        html2pdf()
-          .set(opt)
-          .from(element)
-          .toPdf()
-          .get('pdf')
-          .then(pdf => {
-            console.log('PDF generated with', pdf.internal.getNumberOfPages(), 'pages');
-            pdf.save('Gourab_Mal_CV.pdf');
-          })
-          .catch(err => console.error('PDF generation failed:', err));
-      }, 1000);
-    }
-  </script>
 </body>
 </html>
