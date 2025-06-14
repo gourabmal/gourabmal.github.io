@@ -55,42 +55,12 @@
     }
 
     ul {
-      list-style-type: none;
-      padding: 0;
+      list-style-type: disc;
+      padding-left: 20px;
     }
 
     ul li {
-      margin-bottom: 10px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    ul li:before {
-      content: '\2022';
-      color: #0056b3;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .skills,
-    .certifications,
-    .languages,
-    .interests {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .skills span,
-    .certifications span,
-    .languages span,
-    .interests span {
-      background: #eef4ff;
-      color: #0056b3;
-      padding: 5px 10px;
-      margin: 5px;
-      border-radius: 20px;
-      font-size: 0.9em;
+      margin-bottom: 8px;
     }
 
     footer {
@@ -115,19 +85,6 @@
         padding: 0.5in;
         box-shadow: none;
         border-radius: 0;
-      }
-      .skills,
-      .certifications,
-      .languages,
-      .interests {
-        display: block;
-      }
-      .skills span,
-      .certifications span,
-      .languages span,
-      .interests span {
-        display: inline-block;
-        margin: 5px 10px 5px 0;
       }
     }
   </style>
@@ -170,28 +127,33 @@
 
     <section>
       <h2>Skills</h2>
-      <div class="skills">
-        <span>Laravel</span>
-        <span>Node JS</span>
-        <span>Express JS</span>
-        <span>Vue JS</span>
-        <span>MySQL</span>
-        <span>PHP</span>
-        <span>HTML</span>
-        <span>JavaScript</span>
-        <span>jQuery</span>
-        <span>GIT & GITHUB</span>
-        <span>REST APIs</span>
+      <div style="display: flex; justify-content: space-between;">
+        <ul style="width: 48%;">
+          <li>Laravel</li>
+          <li>Node JS</li>
+          <li>Express JS</li>
+          <li>Vue JS</li>
+          <li>MySQL</li>
+          <li>PHP</li>
+        </ul>
+        <ul style="width: 48%;">
+          <li>HTML</li>
+          <li>JavaScript</li>
+          <li>jQuery</li>
+          <li>GIT & GITHUB</li>
+          <li>REST APIs</li>
+          <li>AJAX</li>
+        </ul>
       </div>
     </section>
 
     <section>
       <h2>Certifications</h2>
-      <div class="certifications">
-        <span>NodeJS - The Complete Guide</span>
-        <span>Complete Vue Developer Bootcamp</span>
-        <span>The Git & Github Bootcamp</span>
-      </div>
+      <ul>
+        <li>NodeJS - The Complete Guide</li>
+        <li>Complete Vue Developer Bootcamp</li>
+        <li>The Git & Github Bootcamp</li>
+      </ul>
     </section>
 
     <section>
@@ -206,11 +168,11 @@
 
     <section>
       <h2>Languages</h2>
-      <div class="languages">
-        <span>English</span>
-        <span>Hindi</span>
-        <span>Bengali</span>
-      </div>
+      <ul>
+        <li>English</li>
+        <li>Hindi</li>
+        <li>Bengali</li>
+      </ul>
     </section>
 
     <section>
