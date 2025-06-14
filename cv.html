@@ -55,12 +55,42 @@
     }
 
     ul {
-      list-style-type: disc;
-      padding-left: 20px;
+      list-style-type: none;
+      padding: 0;
     }
 
     ul li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li:before {
+      content: '\2022';
+      color: #0056b3;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .skills,
+    .certifications,
+    .languages,
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .skills span,
+    .certifications span,
+    .languages span,
+    .interests span {
+      background: #eef4ff;
+      color: #0056b3;
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 20px;
+      font-size: 0.9em;
     }
 
     footer {
@@ -86,6 +116,19 @@
         box-shadow: none;
         border-radius: 0;
       }
+      .skills,
+      .certifications,
+      .languages,
+      .interests {
+        display: block;
+      }
+      .skills span,
+      .certifications span,
+      .languages span,
+      .interests span {
+        display: inline-block;
+        margin: 5px 10px 5px 0;
+      }
     }
   </style>
 </head>
@@ -108,15 +151,16 @@
       <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong> <br>Jan 2023 – Present</p>
       <ul>
         <li>Developed and maintained scalable web applications using various technologies.</li>
-        <li>Implemented robust security measures and optimized application performance.</li>
         <li>Collaborated with cross-functional teams to deliver high-quality products.</li>
+        <li>Handled version control using Git & GitHub.</li>
+        <li>Managed CPanel-based servers and performed deployment tasks.</li>
       </ul>
 
       <h3>Web Developer</h3>
       <p><strong>Swadesh Softwares Pvt. Ltd.</strong> <br>Feb 2021 – Dec 2022</p>
       <ul>
         <li>Developed efficient web applications using multiple skills.</li>
-        <li>Enhanced database performance and optimized server-side processes.</li>
+        <li>Implemented various payment gateways and SMS gateways..</li>
       </ul>
     </section>
 
@@ -127,33 +171,28 @@
 
     <section>
       <h2>Skills</h2>
-      <div style="display: flex; justify-content: space-between;">
-        <ul style="width: 48%;">
-          <li>Laravel</li>
-          <li>Node JS</li>
-          <li>Express JS</li>
-          <li>Vue JS</li>
-          <li>MySQL</li>
-          <li>PHP</li>
-        </ul>
-        <ul style="width: 48%;">
-          <li>HTML</li>
-          <li>JavaScript</li>
-          <li>jQuery</li>
-          <li>GIT & GITHUB</li>
-          <li>REST APIs</li>
-          <li>AJAX</li>
-        </ul>
+      <div class="skills">
+        <span>Laravel</span>
+        <span>Node JS</span>
+        <span>Express JS</span>
+        <span>Vue JS</span>
+        <span>MySQL</span>
+        <span>PHP</span>
+        <span>HTML</span>
+        <span>JavaScript</span>
+        <span>jQuery</span>
+        <span>GIT & GITHUB</span>
+        <span>REST APIs</span>
       </div>
     </section>
 
     <section>
       <h2>Certifications</h2>
-      <ul>
-        <li>NodeJS - The Complete Guide</li>
-        <li>Complete Vue Developer Bootcamp</li>
-        <li>The Git & Github Bootcamp</li>
-      </ul>
+      <div class="certifications">
+        <span>NodeJS - The Complete Guide</span>
+        <span>Complete Vue Developer Bootcamp</span>
+        <span>The Git & Github Bootcamp</span>
+      </div>
     </section>
 
     <section>
@@ -168,11 +207,11 @@
 
     <section>
       <h2>Languages</h2>
-      <ul>
-        <li>English</li>
-        <li>Hindi</li>
-        <li>Bengali</li>
-      </ul>
+      <div class="languages">
+        <span>English</span>
+        <span>Hindi</span>
+        <span>Bengali</span>
+      </div>
     </section>
 
     <section>
