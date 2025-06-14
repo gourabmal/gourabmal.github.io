@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +14,7 @@
       background-color: #f0f4f8;
       color: #333;
       transition: background-color 0.3s, color 0.3s;
+      font-size: 14px;
     }
 
     .dark-mode {
@@ -24,7 +26,7 @@
       max-width: 900px;
       margin: 20px auto;
       background: #fff;
-      padding: 20px 40px;
+      padding: 20px 30px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       transition: background 0.3s;
@@ -36,30 +38,30 @@
 
     header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     header h1 {
-      font-size: 2.5em;
+      font-size: 1.8em;
       color: #0056b3;
       margin: 0;
     }
 
     header p {
-      font-size: 1.1em;
+      font-size: 1em;
       margin: 5px 0;
     }
 
     section {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     section h2 {
       color: #0056b3;
       border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
-      margin-bottom: 15px;
-      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-size: 1.2em;
     }
 
     ul {
@@ -68,7 +70,7 @@
     }
 
     ul li {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       padding-left: 20px;
       position: relative;
     }
@@ -95,10 +97,10 @@
     .interests span {
       background: #eef4ff;
       color: #0056b3;
-      padding: 5px 10px;
+      padding: 4px 8px;
       margin: 5px;
       border-radius: 20px;
-      font-size: 0.9em;
+      font-size: 0.85em;
     }
 
     .dark-mode .skills span,
@@ -111,18 +113,22 @@
 
     footer {
       text-align: center;
-      font-size: 0.95em;
+      font-size: 0.9em;
       color: #555;
-      margin-top: 40px;
-      padding-top: 20px;
+      margin-top: 30px;
+      padding-top: 15px;
       border-top: 1px solid #ddd;
     }
 
+    .button-row {
+      text-align: center;
+      margin: 15px 0;
+    }
+
     .toggle-button,
-    .pdf-button {
-      display: inline-block;
-      margin: 10px;
+    .download-button {
       padding: 8px 16px;
+      margin: 0 5px;
       background-color: #0056b3;
       color: #fff;
       border: none;
@@ -133,15 +139,11 @@
     }
 
     .toggle-button:hover,
-    .pdf-button:hover {
+    .download-button:hover {
       background-color: #003f88;
     }
 
-    .button-group {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
+    /* Prevent some elements from showing in PDF */
     .no-print {
       display: block;
     }
@@ -153,11 +155,12 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="container" id="resume">
-    <div class="button-group no-print">
+  <div class="container" id="cv">
+    <div class="button-row no-print">
       <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
-      <button class="pdf-button" onclick="downloadPDF()">Download as PDF</button>
+      <button class="download-button" onclick="downloadPDF()">Download PDF</button>
     </div>
 
     <header>
@@ -168,7 +171,7 @@
 
     <section>
       <h2>Professional Summary</h2>
-      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more.</p>
+      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more. Dedicated to crafting efficient backend systems and dynamic frontend experiences that drive product performance and user satisfaction.</p>
     </section>
 
     <section>
@@ -223,10 +226,10 @@
     <section>
       <h2>Projects</h2>
       <ul>
-        <li>E-commerce Platforms: Developed platforms with payment gateway integration and authentication.</li>
-        <li>CMS: Built role-based CMS platforms with scheduling and media management capabilities.</li>
-        <li>Web Monitoring Tool: Created a Node.js-based service to detect visual changes on websites.</li>
-        <li>API Development: Designed and implemented APIs for ecommerce and CMS platforms.</li>
+        <li>E-commerce Platforms: Developed platforms with payment gateway and user auth.</li>
+        <li>Content Management Systems with media management and roles.</li>
+        <li>Web Monitoring Tool in Node.js for detecting visual changes.</li>
+        <li>Built secure and scalable APIs for CMS and e-commerce.</li>
       </ul>
     </section>
 
@@ -241,7 +244,7 @@
 
     <section>
       <h2>Interests</h2>
-      <p>I love to write poems and stories in my free time. Here is my blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
+      <p>I love to write poems and stories in my free time. Here is my writing blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
     </section>
 
     <footer class="no-print">
@@ -249,8 +252,9 @@
     </footer>
   </div>
 
-  <!-- html2pdf JS -->
+  <!-- jsPDF and html2pdf CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
@@ -264,19 +268,20 @@
     };
 
     function downloadPDF() {
-      const element = document.getElementById('resume');
+      const element = document.getElementById('cv');
       const opt = {
-        margin: 0.5,
+        margin: 0.4,
         filename: 'Gourab_Mal_Resume.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: {
-          scale: 2,
-          ignoreElements: (el) => el.classList && el.classList.contains('no-print')
+          scale: 1.4,
+          ignoreElements: (el) => el.classList.contains('no-print')
         },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
       };
       html2pdf().set(opt).from(element).save();
     }
   </script>
 </body>
+
 </html>
