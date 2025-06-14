@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gourab Mal - Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gourab Mal - CV</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f7f9fc;
-      color: #333;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      font-size: 14px;
+      background-color: #f0f4f8;
+      color: #333;
     }
 
     .container {
-      max-width: 900px;
-      margin: 20px auto;
+      max-width: 850px;
+      margin: 30px auto;
       background: #fff;
-      padding: 30px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
     }
 
     header {
@@ -29,14 +29,14 @@
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2em;
+      font-size: 2.5em;
       color: #0056b3;
+      margin: 0;
     }
 
     header p {
-      margin: 4px 0;
-      font-size: 0.95em;
+      font-size: 1.1em;
+      margin: 5px 0;
     }
 
     section {
@@ -44,69 +44,69 @@
     }
 
     section h2 {
-      font-size: 1.2em;
       color: #0056b3;
-      border-bottom: 2px solid #eee;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
       margin-bottom: 10px;
-      padding-bottom: 4px;
+      font-size: 1.4em;
     }
 
     ul {
+      list-style: none;
       padding: 0;
-      list-style-type: none;
     }
 
     ul li {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       padding-left: 20px;
       position: relative;
     }
 
     ul li::before {
-      content: "•";
+      content: '•';
+      color: #0056b3;
       position: absolute;
       left: 0;
-      color: #0056b3;
-    }
-
-    .skills, .certifications, .languages, .interests {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      top: 0;
     }
 
     .skills span,
     .certifications span,
     .languages span,
     .interests span {
-      background-color: #e6f0ff;
+      background: #eef4ff;
       color: #0056b3;
-      padding: 5px 12px;
+      padding: 6px 12px;
+      margin: 5px 6px;
+      display: inline-block;
       border-radius: 20px;
-      font-size: 0.85em;
+      font-size: 0.9em;
     }
 
     footer {
       text-align: center;
       margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
     }
 
-    .download-button {
-      padding: 10px 22px;
+    .btn-download {
+      display: inline-block;
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 20px;
       margin-top: 10px;
-      background: linear-gradient(to right, #0056b3, #0073e6);
       border: none;
-      color: #fff;
+      border-radius: 25px;
       font-size: 1em;
-      border-radius: 30px;
+      text-decoration: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease;
     }
 
-    .download-button:hover {
-      background: linear-gradient(to right, #004494, #005ecf);
+    .btn-download:hover {
+      background-color: #003f88;
     }
 
     .no-print {
@@ -120,6 +120,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container" id="cv">
     <header>
@@ -130,24 +131,23 @@
 
     <section>
       <h2>Professional Summary</h2>
-      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more. Dedicated to crafting efficient backend systems and dynamic frontend experiences that drive product performance and user satisfaction.</p>
+      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more.</p>
     </section>
 
     <section>
       <h2>Work Experience</h2>
       <h3>Senior Engineer - Web</h3>
-      <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong> <br>Jan 2023 – Present</p>
+      <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong><br>Jan 2023 – Present</p>
       <ul>
-        <li>Developed and maintained scalable web applications using various technologies.</li>
-        <li>Implemented robust security measures and optimized application performance.</li>
-        <li>Collaborated with cross-functional teams to deliver high-quality products.</li>
+        <li>Developed and maintained scalable web applications.</li>
+        <li>Implemented security and performance enhancements.</li>
+        <li>Collaborated with cross-functional teams.</li>
       </ul>
-
       <h3>Web Developer</h3>
-      <p><strong>Swadesh Softwares Pvt. Ltd.</strong> <br>Feb 2021 – Dec 2022</p>
+      <p><strong>Swadesh Softwares Pvt. Ltd.</strong><br>Feb 2021 – Dec 2022</p>
       <ul>
-        <li>Designed and developed efficient web applications using multiple skills.</li>
-        <li>Enhanced database performance and optimized server-side processes.</li>
+        <li>Designed and developed efficient web applications.</li>
+        <li>Optimized database and server-side performance.</li>
       </ul>
     </section>
 
@@ -159,87 +159,62 @@
     <section>
       <h2>Skills</h2>
       <div class="skills">
-        <span>Laravel</span>
-        <span>Node JS</span>
-        <span>Express JS</span>
-        <span>Vue JS</span>
-        <span>MySQL</span>
-        <span>PHP</span>
-        <span>HTML</span>
-        <span>JavaScript</span>
-        <span>jQuery</span>
-        <span>GIT & GITHUB</span>
-        <span>REST APIs</span>
+        <span>Laravel</span><span>Node JS</span><span>Express JS</span><span>Vue JS</span><span>MySQL</span><span>PHP</span><span>HTML</span><span>JavaScript</span><span>jQuery</span><span>GIT & GITHUB</span><span>REST APIs</span>
       </div>
     </section>
 
     <section>
       <h2>Certifications</h2>
       <div class="certifications">
-        <span>NodeJS - The Complete Guide</span>
-        <span>Complete Vue Developer Bootcamp</span>
-        <span>The Git & Github Bootcamp</span>
+        <span>NodeJS - The Complete Guide</span><span>Complete Vue Developer Bootcamp</span><span>The Git & Github Bootcamp</span>
       </div>
     </section>
 
     <section>
       <h2>Projects</h2>
       <ul>
-        <li>E-commerce Platforms: Developed platforms with payment gateway and user auth.</li>
-        <li>Content Management Systems with media management and roles.</li>
-        <li>Web Monitoring Tool in Node.js for detecting visual changes.</li>
-        <li>Built secure and scalable APIs for CMS and e-commerce.</li>
+        <li>E-commerce Platforms with payment gateways and auth</li>
+        <li>Role-based CMS platforms</li>
+        <li>Node.js Web Monitoring Service</li>
+        <li>API Development for e-commerce and CMS</li>
       </ul>
     </section>
 
     <section>
       <h2>Languages</h2>
       <div class="languages">
-        <span>English</span>
-        <span>Hindi</span>
-        <span>Bengali</span>
+        <span>English</span><span>Hindi</span><span>Bengali</span>
       </div>
     </section>
 
     <section>
       <h2>Interests</h2>
-      <p>I love to write poems and stories in my free time. Here is my writing blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
+      <p>I love writing poems and stories.<br>
+        Visit my blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>
+      </p>
     </section>
-
-    <footer class="no-print">
-      <button class="download-button" onclick="downloadPDF()">⬇️ Download PDF</button>
-      <p style="margin-top: 12px; font-size: 0.85em;">© 2025 Gourab Mal. All rights reserved.</p>
-    </footer>
   </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-  function downloadPDF() {
-    const element = document.getElementById('cv');
+  <footer class="no-print">
+    <button class="btn-download" onclick="downloadPDF()">Download PDF</button>
+    <p style="margin-top: 15px;">© 2025 Gourab Mal. All rights reserved.</p>
+  </footer>
 
-    // Clone to avoid rendering issues
-    const clone = element.cloneNode(true);
-    clone.style.maxWidth = '800px'; // keep within A4
-    clone.style.margin = '0 auto';
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById('cv');
+      const clone = element.cloneNode(true);
 
-    // Remove elements with .no-print class
-    const noPrints = clone.querySelectorAll('.no-print');
-    noPrints.forEach(el => el.remove());
+      const opt = {
+        margin: 0.4,
+        filename: 'Gourab_Mal_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
 
-    const opt = {
-      margin: 0.5,
-      filename: 'Gourab_Mal_Resume.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: {
-        scale: 2,
-        useCORS: true
-      },
-      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(clone).save();
-  }
-</script>
-
+      html2pdf().set(opt).from(clone).save();
+    }
+  </script>
 </body>
 </html>
