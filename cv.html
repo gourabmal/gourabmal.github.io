@@ -8,6 +8,7 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
+      line-height: 1.6;
       margin: 0;
       padding: 0;
       background-color: #f0f4f8;
@@ -40,15 +41,15 @@
     }
 
     section {
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
 
     section h2 {
       color: #0056b3;
       border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
-      margin-bottom: 10px;
-      font-size: 1.4em;
+      margin-bottom: 15px;
+      font-size: 1.5em;
     }
 
     ul {
@@ -57,7 +58,7 @@
     }
 
     ul li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       padding-left: 20px;
       position: relative;
     }
@@ -131,23 +132,24 @@
 
     <section>
       <h2>Professional Summary</h2>
-      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more.</p>
+      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more. Dedicated to crafting efficient backend systems and dynamic frontend experiences that drive product performance and user satisfaction.</p>
     </section>
 
     <section>
       <h2>Work Experience</h2>
       <h3>Senior Engineer - Web</h3>
-      <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong><br>Jan 2023 – Present</p>
+      <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong> <br>Jan 2023 – Present</p>
       <ul>
-        <li>Developed and maintained scalable web applications.</li>
-        <li>Implemented security and performance enhancements.</li>
-        <li>Collaborated with cross-functional teams.</li>
+        <li>Developed and maintained scalable web applications using various technologies.</li>
+        <li>Implemented robust security measures and optimized application performance.</li>
+        <li>Collaborated with cross-functional teams to deliver high-quality products.</li>
       </ul>
+
       <h3>Web Developer</h3>
-      <p><strong>Swadesh Softwares Pvt. Ltd.</strong><br>Feb 2021 – Dec 2022</p>
+      <p><strong>Swadesh Softwares Pvt. Ltd.</strong> <br>Feb 2021 – Dec 2022</p>
       <ul>
-        <li>Designed and developed efficient web applications.</li>
-        <li>Optimized database and server-side performance.</li>
+        <li>Designed and developed efficient web applications using multiple skills.</li>
+        <li>Enhanced database performance and optimized server-side processes.</li>
       </ul>
     </section>
 
@@ -159,39 +161,52 @@
     <section>
       <h2>Skills</h2>
       <div class="skills">
-        <span>Laravel</span><span>Node JS</span><span>Express JS</span><span>Vue JS</span><span>MySQL</span><span>PHP</span><span>HTML</span><span>JavaScript</span><span>jQuery</span><span>GIT & GITHUB</span><span>REST APIs</span>
+        <span>Laravel</span>
+        <span>Node JS</span>
+        <span>Express JS</span>
+        <span>Vue JS</span>
+        <span>MySQL</span>
+        <span>PHP</span>
+        <span>HTML</span>
+        <span>JavaScript</span>
+        <span>jQuery</span>
+        <span>GIT & GITHUB</span>
+        <span>REST APIs</span>
       </div>
     </section>
 
     <section>
       <h2>Certifications</h2>
       <div class="certifications">
-        <span>NodeJS - The Complete Guide</span><span>Complete Vue Developer Bootcamp</span><span>The Git & Github Bootcamp</span>
+        <span>NodeJS - The Complete Guide</span>
+        <span>Complete Vue Developer Bootcamp</span>
+        <span>The Git & Github Bootcamp</span>
       </div>
     </section>
 
     <section>
       <h2>Projects</h2>
       <ul>
-        <li>E-commerce Platforms with payment gateways and auth</li>
-        <li>Role-based CMS platforms</li>
-        <li>Node.js Web Monitoring Service</li>
-        <li>API Development for e-commerce and CMS</li>
+        <li>E-commerce Platforms: Developed multiple platforms with features like payment gateway integration and user authentication.</li>
+        <li>Content Management Systems: Built role-based CMS platforms with scheduling and media management capabilities.</li>
+        <li>Web Monitoring Service: Created a Node.js-based tool to monitor websites and detect visual changes.</li>
+        <li>API Development: Designed and implemented APIs for ecommerce and CMS solutions.</li>
       </ul>
     </section>
 
     <section>
       <h2>Languages</h2>
       <div class="languages">
-        <span>English</span><span>Hindi</span><span>Bengali</span>
+        <span>English</span>
+        <span>Hindi</span>
+        <span>Bengali</span>
       </div>
     </section>
 
     <section>
       <h2>Interests</h2>
-      <p>I love writing poems and stories.<br>
-        Visit my blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>
-      </p>
+      <p>I love to write poems and stories in my free time.
+        Here is my writing blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
     </section>
   </div>
 
@@ -203,17 +218,14 @@
   <script>
     function downloadPDF() {
       const element = document.getElementById('cv');
-      const clone = element.cloneNode(true);
-
       const opt = {
-        margin: 0.4,
-        filename: 'Gourab_Mal_Resume.pdf',
+        margin: [0.3, 0.3, 0.3, 0.3],
+        filename: 'Gourab_Mal_CV.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
       };
-
-      html2pdf().set(opt).from(clone).save();
+      html2pdf().set(opt).from(element).save();
     }
   </script>
 </body>
