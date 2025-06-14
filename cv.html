@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gourab Mal - CV</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Arial', 'Helvetica', sans-serif; /* Added fallback fonts */
       line-height: 1.6;
       margin: 0;
       padding: 0;
@@ -16,7 +16,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 8.27in; /* A4 width */
       margin: 20px auto;
       background: #fff;
       padding: 20px 40px;
@@ -118,7 +118,6 @@
       background-color: #003f88;
     }
 
-    /* Hide this in PDF */
     .no-print {
       display: block;
     }
@@ -178,7 +177,7 @@
         <span>HTML</span>
         <span>JavaScript</span>
         <span>jQuery</span>
-        <span>GIT & GITHUB</span>
+ocket <span>GIT & Python</span>
         <span>REST APIs</span>
       </div>
     </section>
@@ -197,7 +196,7 @@
       <ul>
         <li>E-commerce Platforms: Developed multiple platforms with features like payment gateway integration and user authentication.</li>
         <li>Content Management Systems: Built role-based CMS platforms with scheduling and media management capabilities.</li>
-        <li>Web Monitoring Service: Created a Node.js-based tool to monitor websites and detect visual changes.</li>
+        <li>Web Monitoring Service</li>
         <li>API Development: Designed and implemented APIs for ecommerce and CMS solutions.</li>
       </ul>
     </section>
@@ -227,15 +226,27 @@
     function downloadPDF() {
       const element = document.getElementById('cv');
 
+      if (!element) {
+        console.error('Element with ID "cv" not found');
+        return;
+      }
+
       const opt = {
-        margin:       0.3,
-        filename:     'Gourab_Mal_CV.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        margin: 0.3,
+        filename: 'Gourab_Mal_CV.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 1, useCORS: true }, // Reduced scale for reliability
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
       };
 
-      html2pdf().set(opt).from(element).save();
+      // Add delay to ensure rendering
+      setTimeout(() => {
+        html2pdf()
+          .set(opt)
+          .from(element)
+          .save()
+          .catch(err => console.error('PDF generation failed:', err));
+      }, 500);
     }
   </script>
 </body>
