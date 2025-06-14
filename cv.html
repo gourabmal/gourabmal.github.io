@@ -1,272 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gourab Mal - CV</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
-            color: #333;
-            transition: background-color 0.3s, color 0.3s;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gourab Mal - CV</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        .dark-mode {
-            background-color: #121212;
-            color: #f0f0f0;
-        }
+    .dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            transition: background 0.3s;
-        }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
 
-        .dark-mode .container {
-            background: #1e1e1e;
-        }
+    .dark-mode .container {
+      background: #1e1e1e;
+    }
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-        header h1 {
-            font-size: 2.5em;
-            color: #0056b3;
-            margin: 0;
-        }
+    header h1 {
+      font-size: 2.5em;
+      color: #0056b3;
+      margin: 0;
+    }
 
-        header p {
-            font-size: 1.1em;
-            margin: 5px 0;
-        }
+    header p {
+      font-size: 1.1em;
+      margin: 5px 0;
+    }
 
-        section {
-            margin-bottom: 30px;
-        }
+    section {
+      margin-bottom: 30px;
+    }
 
-        section h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
+    section h2 {
+      color: #0056b3;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
+    ul li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
 
-        ul li:before {
-            content: '\2022';
-            color: #0056b3;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
+    ul li:before {
+      content: '\2022';
+      color: #0056b3;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
 
-        .skills,
-        .certifications,
-        .languages,
-        .interests {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    .skills,
+    .certifications,
+    .languages,
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-        .skills span,
-        .certifications span,
-        .languages span,
-        .interests span {
-            background: #eef4ff;
-            color: #0056b3;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 20px;
-            font-size: 0.9em;
-        }
+    .skills span,
+    .certifications span,
+    .languages span,
+    .interests span {
+      background: #eef4ff;
+      color: #0056b3;
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 20px;
+      font-size: 0.9em;
+    }
 
-        .dark-mode .skills span,
-        .dark-mode .certifications span,
-        .dark-mode .languages span,
-        .dark-mode .interests span {
-            background: #2a2a2a;
-            color: #90caf9;
-        }
+    .dark-mode .skills span,
+    .dark-mode .certifications span,
+    .dark-mode .languages span,
+    .dark-mode .interests span {
+      background: #2a2a2a;
+      color: #90caf9;
+    }
 
-        footer {
-            text-align: center;
-            font-size: 0.95em;
-            color: #555;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-        }
+    footer {
+      text-align: center;
+      font-size: 0.95em;
+      color: #555;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
 
-        .toggle-button,
-        .pdf-button {
-            display: inline-block;
-            margin: 10px;
-            padding: 8px 16px;
-            background-color: #0056b3;
-            color: #fff;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s;
-        }
+    .toggle-button,
+    .pdf-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 8px 16px;
+      background-color: #0056b3;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
 
-        .toggle-button:hover,
-        .pdf-button:hover {
-            background-color: #003f88;
-        }
+    .toggle-button:hover,
+    .pdf-button:hover {
+      background-color: #003f88;
+    }
 
-        .button-group {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-    </style>
+    .button-group {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .no-print {
+      display: block;
+    }
+
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container" id="resume">
-        <div class="button-group">
-            <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
-            <button class="pdf-button" onclick="downloadPDF()">Download as PDF</button>
-        </div>
-
-        <header>
-            <h1>Gourab Mal</h1>
-            <p>Email: <a href="mailto:gourabmal4@gmail.com">gourabmal4@gmail.com</a> | Phone: +91 9064884148</p>
-            <p>Portfolio: <a href="https://gourabmal.github.io/" target="_blank">gourabmal.github.io</a></p>
-        </header>
-
-        <section>
-            <h2>Professional Summary</h2>
-            <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more.</p>
-        </section>
-
-        <section>
-            <h2>Work Experience</h2>
-            <h3>Senior Engineer - Web</h3>
-            <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong> <br>Jan 2023 – Present</p>
-            <ul>
-                <li>Developed and maintained scalable web applications using various technologies.</li>
-                <li>Implemented robust security measures and optimized application performance.</li>
-                <li>Collaborated with cross-functional teams to deliver high-quality products.</li>
-            </ul>
-
-            <h3>Web Developer</h3>
-            <p><strong>Swadesh Softwares Pvt. Ltd.</strong> <br>Feb 2021 – Dec 2022</p>
-            <ul>
-                <li>Designed and developed efficient web applications using multiple skills.</li>
-                <li>Enhanced database performance and optimized server-side processes.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <p><strong>B.Tech in Computer Science and Engineering</strong><br>Mallabhum Institute of Technology, Bishnupur<br>Graduated 2020 | DGPA: 8.81</p>
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <div class="skills">
-                <span>Laravel</span>
-                <span>Node JS</span>
-                <span>Express JS</span>
-                <span>Vue JS</span>
-                <span>MySQL</span>
-                <span>PHP</span>
-                <span>HTML</span>
-                <span>JavaScript</span>
-                <span>jQuery</span>
-                <span>GIT & GITHUB</span>
-                <span>REST APIs</span>
-            </div>
-        </section>
-
-        <section>
-            <h2>Certifications</h2>
-            <div class="certifications">
-                <span>NodeJS - The Complete Guide</span>
-                <span>Complete Vue Developer Bootcamp</span>
-                <span>The Git & Github Bootcamp</span>
-            </div>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-            <ul>
-                <li>E-commerce Platforms: Developed platforms with payment gateway integration and authentication.</li>
-                <li>CMS: Built role-based CMS platforms with scheduling and media management capabilities.</li>
-                <li>Web Monitoring Tool: Created a Node.js-based service to detect visual changes on websites.</li>
-                <li>API Development: Designed and implemented APIs for ecommerce and CMS platforms.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Languages</h2>
-            <div class="languages">
-                <span>English</span>
-                <span>Hindi</span>
-                <span>Bengali</span>
-            </div>
-        </section>
-
-        <section>
-            <h2>Interests</h2>
-            <p>I love to write poems and stories in my free time. Here is my blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
-        </section>
-
-        <footer>
-            <p>© 2025 Gourab Mal. All rights reserved.</p>
-        </footer>
+  <div class="container" id="resume">
+    <div class="button-group no-print">
+      <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+      <button class="pdf-button" onclick="downloadPDF()">Download as PDF</button>
     </div>
 
-    <!-- HTML2PDF Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-        }
+    <header>
+      <h1>Gourab Mal</h1>
+      <p>Email: <a href="mailto:gourabmal4@gmail.com">gourabmal4@gmail.com</a> | Phone: +91 9064884148</p>
+      <p>Portfolio: <a href="https://gourabmal.github.io/" target="_blank">gourabmal.github.io</a></p>
+    </header>
 
-        window.onload = function () {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-        };
+    <section>
+      <h2>Professional Summary</h2>
+      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more.</p>
+    </section>
 
-        function downloadPDF() {
-            const element = document.getElementById('resume');
-            const opt = {
-                margin:       0.5,
-                filename:     'Gourab_Mal_Resume.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
-        }
-    </script>
+    <section>
+      <h2>Work Experience</h2>
+      <h3>Senior Engineer - Web</h3>
+      <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong> <br>Jan 2023 – Present</p>
+      <ul>
+        <li>Developed and maintained scalable web applications using various technologies.</li>
+        <li>Implemented robust security measures and optimized application performance.</li>
+        <li>Collaborated with cross-functional teams to deliver high-quality products.</li>
+      </ul>
+
+      <h3>Web Developer</h3>
+      <p><strong>Swadesh Softwares Pvt. Ltd.</strong> <br>Feb 2021 – Dec 2022</p>
+      <ul>
+        <li>Designed and developed efficient web applications using multiple skills.</li>
+        <li>Enhanced database performance and optimized server-side processes.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p><strong>B.Tech in Computer Science and Engineering</strong><br>Mallabhum Institute of Technology, Bishnupur<br>Graduated 2020 | DGPA: 8.81</p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>Laravel</span>
+        <span>Node JS</span>
+        <span>Express JS</span>
+        <span>Vue JS</span>
+        <span>MySQL</span>
+        <span>PHP</span>
+        <span>HTML</span>
+        <span>JavaScript</span>
+        <span>jQuery</span>
+        <span>GIT & GITHUB</span>
+        <span>REST APIs</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <div class="certifications">
+        <span>NodeJS - The Complete Guide</span>
+        <span>Complete Vue Developer Bootcamp</span>
+        <span>The Git & Github Bootcamp</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li>E-commerce Platforms: Developed platforms with payment gateway integration and authentication.</li>
+        <li>CMS: Built role-based CMS platforms with scheduling and media management capabilities.</li>
+        <li>Web Monitoring Tool: Created a Node.js-based service to detect visual changes on websites.</li>
+        <li>API Development: Designed and implemented APIs for ecommerce and CMS platforms.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <div class="languages">
+        <span>English</span>
+        <span>Hindi</span>
+        <span>Bengali</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Interests</h2>
+      <p>I love to write poems and stories in my free time. Here is my blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
+    </section>
+
+    <footer class="no-print">
+      <p>© 2025 Gourab Mal. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- html2pdf JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    window.onload = function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    };
+
+    function downloadPDF() {
+      const element = document.getElementById('resume');
+      const opt = {
+        margin: 0.5,
+        filename: 'Gourab_Mal_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          ignoreElements: (el) => el.classList && el.classList.contains('no-print')
+        },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
 </body>
-
 </html>
