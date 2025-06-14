@@ -8,17 +8,19 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f0f4f8;
+      line-height: 1.6;
       margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
       color: #333;
     }
 
     .container {
-      max-width: 850px;
-      margin: 30px auto;
+      max-width: 900px;
+      margin: 20px auto;
       background: #fff;
-      padding: 30px 40px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
     }
 
@@ -52,7 +54,7 @@
 
     ul {
       list-style-type: none;
-      padding-left: 0;
+      padding: 0;
     }
 
     ul li {
@@ -61,11 +63,20 @@
       position: relative;
     }
 
-    ul li::before {
-      content: '•';
+    ul li:before {
+      content: '\2022';
       color: #0056b3;
       position: absolute;
       left: 0;
+      top: 0;
+    }
+
+    .skills,
+    .certifications,
+    .languages,
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .skills span,
@@ -74,39 +85,40 @@
     .interests span {
       background: #eef4ff;
       color: #0056b3;
-      padding: 6px 12px;
-      margin: 5px 6px;
-      display: inline-block;
+      padding: 5px 10px;
+      margin: 5px;
       border-radius: 20px;
       font-size: 0.9em;
     }
 
     footer {
       text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 0.9em;
+      font-size: 0.95em;
       color: #555;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
     }
 
     .btn-download {
       display: inline-block;
-      background-color: #0056b3;
-      color: white;
-      padding: 10px 20px;
       margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: #fff;
       border: none;
       border-radius: 25px;
-      font-size: 1em;
-      text-decoration: none;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-size: 1em;
+      transition: background-color 0.3s;
+      text-decoration: none;
     }
 
     .btn-download:hover {
       background-color: #003f88;
     }
 
+    /* Hide this in PDF */
     .no-print {
       display: block;
     }
@@ -118,9 +130,8 @@
     }
   </style>
 </head>
-
 <body>
-  <div class="container" id="cv">
+  <div id="cv" class="container">
     <header>
       <h1>Gourab Mal</h1>
       <p>Email: <a href="mailto:gourabmal4@gmail.com">gourabmal4@gmail.com</a> | Phone: +91 9064884148</p>
@@ -209,19 +220,21 @@
 
   <footer class="no-print">
     <button class="btn-download" onclick="downloadPDF()">Download PDF</button>
-    <p style="margin-top: 15px;">© 2025 Gourab Mal. All rights reserved.</p>
+    <p style="margin-top: 10px;">© 2025 Gourab Mal. All rights reserved.</p>
   </footer>
 
   <script>
     function downloadPDF() {
       const element = document.getElementById('cv');
+
       const opt = {
-        margin: 0.5,
-        filename: 'Gourab_Mal_CV.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+        margin:       0.3,
+        filename:     'Gourab_Mal_CV.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
       };
+
       html2pdf().set(opt).from(element).save();
     }
   </script>
