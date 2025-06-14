@@ -13,17 +13,12 @@
             padding: 0;
             background-color: #f0f4f8;
             color: #333;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .dark-mode {
             background-color: #121212;
-            color: #e0e0e0;
-        }
-
-        .dark-mode .container {
-            background: #1e1e1e;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+            color: #f0f0f0;
         }
 
         .container {
@@ -33,7 +28,11 @@
             padding: 20px 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: background 0.3s;
+        }
+
+        .dark-mode .container {
+            background: #1e1e1e;
         }
 
         header {
@@ -50,17 +49,6 @@
         header p {
             font-size: 1.1em;
             margin: 5px 0;
-        }
-
-        .toggle-button {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #0056b3;
-            color: #fff;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9em;
         }
 
         section {
@@ -118,7 +106,7 @@
         .dark-mode .certifications span,
         .dark-mode .languages span,
         .dark-mode .interests span {
-            background: #2c2c2c;
+            background: #2a2a2a;
             color: #90caf9;
         }
 
@@ -130,36 +118,126 @@
             padding-top: 20px;
             border-top: 1px solid #ddd;
         }
+
+        .toggle-button {
+            display: block;
+            margin: 10px auto 30px;
+            padding: 8px 16px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: #003f88;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+
         <header>
             <h1>Gourab Mal</h1>
             <p>Email: <a href="mailto:gourabmal4@gmail.com">gourabmal4@gmail.com</a> | Phone: +91 9064884148</p>
             <p>Portfolio: <a href="https://gourabmal.github.io/" target="_blank">gourabmal.github.io</a></p>
-            <button class="toggle-button" onclick="toggleMode()">Toggle Dark/Light Mode</button>
         </header>
 
-        <!-- [rest of the content stays unchanged] -->
-        <!-- ... All your existing sections like Professional Summary, Work Experience, etc. ... -->
+        <section>
+            <h2>Professional Summary</h2>
+            <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more. Dedicated to crafting efficient backend systems and dynamic frontend experiences that drive product performance and user satisfaction.</p>
+        </section>
+
+        <section>
+            <h2>Work Experience</h2>
+            <h3>Senior Engineer - Web</h3>
+            <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong> <br>Jan 2023 – Present</p>
+            <ul>
+                <li>Developed and maintained scalable web applications using various technologies.</li>
+                <li>Implemented robust security measures and optimized application performance.</li>
+                <li>Collaborated with cross-functional teams to deliver high-quality products.</li>
+            </ul>
+
+            <h3>Web Developer</h3>
+            <p><strong>Swadesh Softwares Pvt. Ltd.</strong> <br>Feb 2021 – Dec 2022</p>
+            <ul>
+                <li>Designed and developed efficient web applications using multiple skills.</li>
+                <li>Enhanced database performance and optimized server-side processes.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <p><strong>B.Tech in Computer Science and Engineering</strong><br>Mallabhum Institute of Technology, Bishnupur<br>Graduated 2020 | DGPA: 8.81</p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills">
+                <span>Laravel</span>
+                <span>Node JS</span>
+                <span>Express JS</span>
+                <span>Vue JS</span>
+                <span>MySQL</span>
+                <span>PHP</span>
+                <span>HTML</span>
+                <span>JavaScript</span>
+                <span>jQuery</span>
+                <span>GIT & GITHUB</span>
+                <span>REST APIs</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Certifications</h2>
+            <div class="certifications">
+                <span>NodeJS - The Complete Guide</span>
+                <span>Complete Vue Developer Bootcamp</span>
+                <span>The Git & Github Bootcamp</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <ul>
+                <li>E-commerce Platforms: Developed multiple platforms with features like payment gateway integration and user authentication.</li>
+                <li>Content Management Systems: Built role-based CMS platforms with scheduling and media management capabilities.</li>
+                <li>Web Monitoring Service: Created a Node.js-based tool to monitor websites and detect visual changes.</li>
+                <li>API Development: Designed and implemented APIs for ecommerce and CMS solutions.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Languages</h2>
+            <div class="languages">
+                <span>English</span>
+                <span>Hindi</span>
+                <span>Bengali</span>
+            </div>
+        </section>
 
         <section>
             <h2>Interests</h2>
             <p>I love to write poems and stories in my free time.
-                Here is my writing blog: <a href="https://gourabsdiary.blogspot.com"
-                        target="_blank">gourabsdiary.blogspot.com</a>.</p>
+                Here is my writing blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
         </section>
+
+        <footer>
+            <p>© 2025 Gourab Mal. All rights reserved.</p>
+        </footer>
     </div>
 
     <script>
-        function toggleMode() {
+        function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         }
 
-        // Load theme preference on page load
         window.onload = function () {
             if (localStorage.getItem('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
