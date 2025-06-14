@@ -8,10 +8,8 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
       background-color: #f0f4f8;
+      margin: 0;
       color: #333;
     }
 
@@ -53,8 +51,8 @@
     }
 
     ul {
-      list-style: none;
-      padding: 0;
+      list-style-type: none;
+      padding-left: 0;
     }
 
     ul li {
@@ -68,7 +66,6 @@
       color: #0056b3;
       position: absolute;
       left: 0;
-      top: 0;
     }
 
     .skills span,
@@ -219,7 +216,7 @@
     function downloadPDF() {
       const element = document.getElementById('cv');
       const opt = {
-        margin: [0.3, 0.3, 0.3, 0.3],
+        margin: 0.5,
         filename: 'Gourab_Mal_CV.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
