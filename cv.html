@@ -7,7 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
     body {
-      font-family: 'Arial', 'Helvetica', sans-serif; /* Added fallback fonts */
+      font-family: 'Arial', 'Helvetica', sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
@@ -16,12 +16,14 @@
     }
 
     .container {
-      max-width: 8.27in; /* A4 width */
-      margin: 20px auto;
+      max-width: 8.27in;
+      min-height: 11.69in;
+      margin: 0 auto;
       background: #fff;
-      padding: 20px 40px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+      padding: 0.5in;
+      box-shadow: none;
+      border-radius: 0;
+      page-break-inside: avoid;
     }
 
     header {
@@ -42,6 +44,7 @@
 
     section {
       margin-bottom: 30px;
+      page-break-inside: avoid;
     }
 
     section h2 {
@@ -126,6 +129,19 @@
       .no-print {
         display: none !important;
       }
+      .skills,
+      .certifications,
+      .languages,
+      .interests {
+        display: block;
+      }
+      .skills span,
+      .certifications span,
+      .languages span,
+      .interests span {
+        display: inline-block;
+        margin: 5px 10px 5px 0;
+      }
     }
   </style>
 </head>
@@ -177,7 +193,7 @@
         <span>HTML</span>
         <span>JavaScript</span>
         <span>jQuery</span>
-ocket <span>GIT & Python</span>
+        <span>GIT & GITHUB</span>
         <span>REST APIs</span>
       </div>
     </section>
@@ -196,7 +212,7 @@ ocket <span>GIT & Python</span>
       <ul>
         <li>E-commerce Platforms: Developed multiple platforms with features like payment gateway integration and user authentication.</li>
         <li>Content Management Systems: Built role-based CMS platforms with scheduling and media management capabilities.</li>
-        <li>Web Monitoring Service</li>
+        <li>Web Monitoring Service: Created a Node.js-based tool to monitor websites and detect visual changes.</li>
         <li>API Development: Designed and implemented APIs for ecommerce and CMS solutions.</li>
       </ul>
     </section>
@@ -231,22 +247,30 @@ ocket <span>GIT & Python</span>
         return;
       }
 
+      console.log('Starting PDF generation...');
+
       const opt = {
-        margin: 0.3,
+        margin: 0,
         filename: 'Gourab_Mal_CV.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 1, useCORS: true }, // Reduced scale for reliability
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+        html2canvas: { scale: 1, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
       };
 
-      // Add delay to ensure rendering
       setTimeout(() => {
+        console.log('Rendering content with html2canvas...');
         html2pdf()
           .set(opt)
           .from(element)
-          .save()
+          .toPdf()
+          .get('pdf')
+          .then(pdf => {
+            console.log('PDF generated with', pdf.internal.getNumberOfPages(), 'pages');
+            pdf.save('Gourab_Mal_CV.pdf');
+          })
           .catch(err => console.error('PDF generation failed:', err));
-      }, 500);
+      }, 1000);
     }
   </script>
 </body>
