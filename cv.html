@@ -1,224 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gourab Mal - CV</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <style>
-    body {
-      font-family: 'Arial', 'Helvetica', sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f4f8;
-      color: #333;
-    }
-
-    .container {
-      max-width: 8.27in; /* A4 width */
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px 40px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      page-break-inside: avoid;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      color: #0056b3;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.1em;
-      margin: 5px 0;
-    }
-
-    section {
-      margin-bottom: 30px;
-      page-break-inside: avoid;
-    }
-
-    section h2 {
-      color: #0056b3;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      font-size: 1.5em;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    ul li:before {
-      content: '\2022';
-      color: #0056b3;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .skills,
-    .certifications,
-    .languages,
-    .interests {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .skills span,
-    .certifications span,
-    .languages span,
-    .interests span {
-      background: #eef4ff;
-      color: #0056b3;
-      padding: 5px 10px;
-      margin: 5px;
-      border-radius: 20px;
-      font-size: 0.9em;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.95em;
-      color: #555;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
-    }
-
-    .no-print {
-      display: block;
-    }
-
-    @media print {
-      .no-print {
-        display: none !important;
-      }
-      .container {
-        margin: 0;
-        padding: 0.5in;
-        box-shadow: none;
-        border-radius: 0;
-      }
-      .skills,
-      .certifications,
-      .languages,
-      .interests {
-        display: block;
-      }
-      .skills span,
-      .certifications span,
-      .languages span,
-      .interests span {
-        display: inline-block;
-        margin: 5px 10px 5px 0;
-      }
-    }
-  </style>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Merriweather:400,700,400italic);
+        body {
+            max-width: 525.6pt;
+            padding: 28.8pt 43.2pt;
+            background-color: #ffffff;
+            font-family: 'Merriweather', serif;
+            color: #666666;
+        }
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-right: auto;
+            width: 100%;
+        }
+        .c30 {
+            padding: 10pt;
+            vertical-align: top;
+            width: 358.5pt;
+        }
+        .c25 {
+            padding: 10pt;
+            vertical-align: top;
+            width: 165pt;
+        }
+        .title {
+            padding-top: 0pt;
+            color: #000000;
+            font-weight: 700;
+            font-size: 36pt;
+            padding-bottom: 6pt;
+            font-family: 'Merriweather';
+            line-height: 1.0;
+            text-align: left;
+        }
+        .subtitle {
+            padding-top: 0pt;
+            color: #000000;
+            font-size: 9pt;
+            padding-bottom: 0pt;
+            font-family: 'Open Sans';
+            line-height: 1.15;
+            text-align: left;
+        }
+        h1 {
+            padding-top: 30pt;
+            color: #2079c7;
+            font-weight: 700;
+            font-size: 9pt;
+            padding-bottom: 0pt;
+            font-family: 'Open Sans';
+            line-height: 1.0;
+            text-align: left;
+        }
+        h2 {
+            padding-top: 16pt;
+            color: #000000;
+            font-weight: 700;
+            font-size: 11pt;
+            padding-bottom: 0pt;
+            font-family: 'Merriweather';
+            line-height: 1.0;
+            text-align: left;
+        }
+        h3 {
+            padding-top: 5pt;
+            color: #666666;
+            font-size: 8pt;
+            padding-bottom: 5pt;
+            font-family: 'Open Sans';
+            line-height: 1.0;
+            text-align: left;
+        }
+        p {
+            margin: 0;
+            color: #666666;
+            font-size: 9pt;
+            font-family: 'Merriweather';
+            padding-top: 6pt;
+            padding-bottom: 6pt;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 10pt 0;
+        }
+        ul li {
+            position: relative;
+            padding-left: 20pt;
+            margin-bottom: 5pt;
+            font-size: 9pt;
+            font-family: 'Merriweather';
+            color: #666666;
+        }
+        ul li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #666666;
+        }
+        .c0 {
+            color: #000000;
+            font-weight: 700;
+            font-size: 9pt;
+            font-family: 'Open Sans';
+        }
+        .c1 {
+            color: #b7b7b7;
+            font-weight: 700;
+            font-size: 9pt;
+            font-family: 'Open Sans';
+        }
+        .c14 {
+            color: #000000;
+            font-weight: 700;
+            font-family: 'Open Sans';
+        }
+        .c17 {
+            color: #2079c7;
+            font-size: 9pt;
+            font-family: 'Open Sans';
+        }
+        .c18 {
+            font-weight: 700;
+            color: #000000;
+        }
+        .c29 {
+            color: #1155cc;
+            font-family: 'Open Sans';
+            text-decoration: none;
+        }
+        .c4 {
+            font-style: italic;
+        }
+        .c10 {
+            font-size: 9pt;
+            font-family: 'Merriweather';
+            color: #666666;
+        }
+        a {
+            color: #1155cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div id="cv" class="container">
-    <header>
-      <h1>Gourab Mal</h1>
-      <p>Email: <a href="mailto:gourabmal4@gmail.com">gourabmal4@gmail.com</a> | Phone: +91 9064884148</p>
-      <p>Portfolio: <a href="https://gourabmal.github.io/" target="_blank">gourabmal.github.io</a></p>
-    </header>
-
-    <section>
-      <h2>Professional Summary</h2>
-      <p>A result-oriented Senior Engineer - Web with expertise in building robust and scalable web applications using technologies like Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more. Dedicated to crafting efficient backend systems and dynamic frontend experiences that drive product performance and user satisfaction.</p>
-    </section>
-
-    <section>
-      <h2>Work Experience</h2>
-      <h3>Senior Engineer - Web</h3>
-      <p><strong>Codeclouds IT Solutions Pvt. Ltd.</strong> <br>Jan 2023 – Present</p>
-      <ul>
-        <li>Develop and maintain scalable web applications using various technologies.</li>
-        <li>Collaborate with cross-functional teams to deliver high-quality products.</li>
-        <li>Handle version control using Git & GitHub.</li>
-        <li>Manage CPanel-based servers and perform deployment tasks.</li>
-      </ul>
-
-      <h3>Web Developer</h3>
-      <p><strong>Swadesh Softwares Pvt. Ltd.</strong> <br>Feb 2021 – Dec 2022</p>
-      <ul>
-        <li>Developed efficient web applications using multiple skills.</li>
-        <li>Implemented various payment gateways and SMS gateways..</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <p><strong>B.Tech in Computer Science and Engineering</strong><br>Mallabhum Institute of Technology, Bishnupur<br>Graduated 2020 | DGPA: 8.81</p>
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      <div class="skills">
-        <span>Laravel</span>
-        <span>Node JS</span>
-        <span>Express JS</span>
-        <span>Vue JS</span>
-        <span>MySQL</span>
-        <span>PHP</span>
-        <span>HTML</span>
-        <span>JavaScript</span>
-        <span>jQuery</span>
-        <span>GIT & GitHub</span>
-        <span>REST APIs</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <div class="certifications">
-        <span>NodeJS - The Complete Guide</span>
-        <span>Complete Vue Developer Bootcamp</span>
-        <span>The Git & Github Bootcamp</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>E-commerce Platforms: Developed multiple platforms with features like payment gateway integration and user authentication.</li>
-        <li>Content Management Systems: Built role-based CMS platforms with scheduling and media management capabilities.</li>
-        <li>Web Monitoring Service: Created a Node.js-based tool to monitor websites and detect visual changes.</li>
-        <li>API Development: Designed and implemented APIs for ecommerce and CMS solutions.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Languages</h2>
-      <div class="languages">
-        <span>English</span>
-        <span>Hindi</span>
-        <span>Bengali</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Interests</h2>
-      <p>I love to write poems and stories in my free time.
-        Here is my writing blog: <a href="https://gourabsdiary.blogspot.com" target="_blank">gourabsdiary.blogspot.com</a>.</p>
-    </section>
-  </div>
+    <table class="c23">
+        <tr>
+            <td class="c30" colspan="1" rowspan="1">
+                <p class="title">Gourab Mal</p>
+                <p class="subtitle">A result-oriented Senior Engineer - Web with 4+ years of experience in building scalable web applications using Laravel, Node.js, Vue.js, MySQL, and more. Skilled in developing efficient backend systems and dynamic user-focused frontends.</p>
+            </td>
+            <td class="c25" colspan="1" rowspan="1">
+                <p class="subtitle">Ramjibanpur,</p>
+                <p class="subtitle">Paschim Medinipur, 721242, West Bengal</p>
+                <p class="subtitle"><span class="c0">9064884148</span></p>
+                <p class="subtitle"><span class="c14"><a href="mailto:gourabmal4@gmail.com">gourabmal4@gmail.com</a></span> <span class="c18 c29"><a href="https://gourabmal.github.io">gourabmal.github.io</a></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="c30" colspan="1" rowspan="1">
+                <h1>EXPERIENCE</h1>
+                <h2>Codeclouds IT Solutions Pvt. Ltd., Kolkata — <span class="c4">Senior Engineer - Web</span></h2>
+                <h3>JAN 2023 - PRESENT</h3>
+                <p class="c10">● Develop and maintain scalable web applications using various technologies.</p>
+                <p class="c10">● Collaborate with cross-functional teams to deliver high-quality products.</p>
+                <p class="c10">● Handle version control using Git & GitHub.</p>
+                <p class="c10">● Manage CPanel-based servers and perform deployment tasks.</p>
+                <h2>Swadesh Softwares Pvt. Ltd., Durgapur — <span class="c4">Web Developer</span></h2>
+                <h3>FEB 2021 - DEC 2022</h3>
+                <p class="c10">● Developed efficient web applications using multiple skills.</p>
+                <p class="c10">● Implemented various payment gateways and SMS gateways.</p>
+                <h1>EDUCATION</h1>
+                <h2>Mallabhum Institute of Technology, Bishnupur — <span class="c4">B.Tech</span></h2>
+                <h3>AUG 2016 - JUL 2020</h3>
+                <p class="c10">Computer Science and Engineering | DGPA: 8.81</p>
+                <h1>PROJECTS</h1>
+                <h2>E-commerce Platforms</h2>
+                <p class="c10">Developed multiple platforms with features like payment gateway integration and user authentication.</p>
+                <h2>Content Management Systems</h2>
+                <p class="c10">Built role-based CMS platforms with scheduling and media management capabilities.</p>
+                <h2>Web Monitoring Service</h2>
+                <p class="c10">Created a Node.js-based tool to monitor websites and detect visual changes.</p>
+            </td>
+            <td class="c25" colspan="1" rowspan="1">
+                <h1>SKILLS</h1>
+                <ul>
+                    <li>Laravel</li>
+                    <li>Node JS</li>
+                    <li>Express JS</li>
+                    <li>Vue JS</li>
+                    <li>MySQL</li>
+                    <li>PHP</li>
+                    <li>HTML</li>
+                    <li>JavaScript</li>
+                    <li>jQuery</li>
+                    <li>GIT & GitHub</li>
+                    <li>REST APIs</li>
+                    <li>AJAX</li>
+                </ul>
+                <h1>AWARDS</h1>
+                <p><span class="c18">Promising Stars Empowering the Team</span> – <span class="c4">Swadesh Softwares Pvt. Ltd.</span> (2022).</p>
+                <p><span class="c18">Lakshmi Narayana Memorial Award</span> – <span class="c4">Topper</span>, Mallabhum Institute of Technology (2018).</p>
+                <h1>CERTIFICATIONS</h1>
+                <p><span class="c18">NodeJS - The Complete Guide</span> – <span class="c4">Udemy</span> (2023).</p>
+                <p><span class="c18">Vue Developer Bootcamp</span> – <span class="c4">Udemy</span> (2024).</p>
+                <p><span class="c18">The Git & Github Bootcamp</span> – <span class="c4">Udemy</span> (2025).</p>
+                <h1>LANGUAGES</h1>
+                <p class="c10">English, Hindi, Bengali</p>
+                <h1>INTERESTS</h1>
+                <p class="c10">In my leisure, I find joy in crafting poems and stories.</p>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
