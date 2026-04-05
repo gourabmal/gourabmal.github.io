@@ -1,183 +1,714 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-    <style type="text/css">
-        @import url(https://themes.googleusercontent.com/fonts/css?kit=RFda8w1V0eDZheqfcyQ4EGb3DKsRMD34dqg1gT8Z-p6isjtAVhoKeKPV_uAAgBOSk3k702ZOKiLJc3WVjuplzPesZW2xOQ-xsNqO47m55DA);
-        .lst-kix_d52h1clnbs3c-5 > li:before { content: "\0025a0   " }
-        .lst-kix_d52h1clnbs3c-3 > li:before { content: "\0025cf   " }
-        .lst-kix_d52h1clnbs3c-2 > li:before { content: "\0025a0   " }
-        .lst-kix_d52h1clnbs3c-6 > li:before { content: "\0025cf   " }
-        .lst-kix_d52h1clnbs3c-1 > li:before { content: "\0025cb   " }
-        .lst-kix_d52h1clnbs3c-7 > li:before { content: "\0025cb   " }
-        .lst-kix_d52h1clnbs3c-0 > li:before { content: "\00200b   " }
-        .lst-kix_d52h1clnbs3c-8 > li:before { content: "\0025a0   " }
-        ul.lst-kix_d52h1clnbs3c-5 { list-style-type: none }
-        ul.lst-kix_d52h1clnbs3c-6 { list-style-type: none }
-        ul.lst-kix_d52h1clnbs3c-7 { list-style-type: none }
-        ul.lst-kix_d52h1clnbs3c-8 { list-style-type: none }
-        .lst-kix_d52h1clnbs3c-4 > li:before { content: "\0025cb   " }
-        ul.lst-kix_d52h1clnbs3c-0 { list-style-type: none }
-        ul.lst-kix_d52h1clnbs3c-1 { list-style-type: none }
-        ul.lst-kix_d52h1clnbs3c-2 { list-style-type: none }
-        ul.lst-kix_d52h1clnbs3c-3 { list-style-type: none }
-        ul.lst-kix_d52h1clnbs3c-4 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-2 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-1 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-4 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-3 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-0 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-6 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-5 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-8 { list-style-type: none }
-        ul.lst-kix_3expns8knkd9-7 { list-style-type: none }
-        .lst-kix_in9ulqowruvs-2 > li:before { content: "\0025cf   " }
-        .lst-kix_in9ulqowruvs-1 > li:before { content: "\0025cf   " }
-        .lst-kix_in9ulqowruvs-3 > li:before { content: "\0025cf   " }
-        .lst-kix_in9ulqowruvs-0 > li:before { content: "\0025cf   " }
-        .lst-kix_in9ulqowruvs-4 > li:before { content: "\0025cf   " }
-        .lst-kix_in9ulqowruvs-6 > li:before { content: "\0025cf   " }
-        .lst-kix_in9ulqowruvs-5 > li:before { content: "\0025cf   " }
-        .lst-kix_in9ulqowruvs-7 > li:before { content: "\0025cf   " }
-        .lst-kix_3expns8knkd9-0 > li:before { content: "\00200b   " }
-        .lst-kix_3expns8knkd9-1 > li:before { content: "\0025cb   " }
-        .lst-kix_in9ulqowruvs-8 > li:before { content: "\0025cf   " }
-        .lst-kix_3expns8knkd9-3 > li:before { content: "\0025cf   " }
-        .lst-kix_3expns8knkd9-2 > li:before { content: "\0025a0   " }
-        .lst-kix_3expns8knkd9-8 > li:before { content: "\0025a0   " }
-        .lst-kix_3expns8knkd9-7 > li:before { content: "\0025cb   " }
-        .lst-kix_3expns8knkd9-4 > li:before { content: "\0025cb   " }
-        .lst-kix_3expns8knkd9-5 > li:before { content: "\0025a0   " }
-        .lst-kix_3expns8knkd9-6 > li:before { content: "\0025cf   " }
-        ul.lst-kix_in9ulqowruvs-0 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-2 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-1 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-4 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-3 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-6 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-5 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-8 { list-style-type: none }
-        ul.lst-kix_in9ulqowruvs-7 { list-style-type: none }
-        ol { margin: 0; padding: 0 }
-        table td, table th { padding: 0 }
-        .c30 { border-right-style: solid; padding: 7.2pt 7.2pt 7.2pt 7.2pt; border-bottom-color: #ffffff; border-top-width: 0pt; border-right-width: 0pt; border-left-color: #ffffff; vertical-align: top; border-right-color: #ffffff; border-left-width: 0pt; border-top-style: solid; border-left-style: solid; border-bottom-width: 0pt; width: 358.5pt; border-top-color: #ffffff; border-bottom-style: solid }
-        .c25 { border-right-style: solid; padding: 7.2pt 7.2pt 7.2pt 7.2pt; border-bottom-color: #ffffff; border-top-width: 0pt; border-right-width: 0pt; border-left-color: #ffffff; vertical-align: top; border-right-color: #ffffff; border-left-width: 0pt; border-top-style: solid; border-left-style: solid; border-bottom-width: 0pt; width: 165pt; border-top-color: #ffffff; border-bottom-style: solid }
-        .c0 { color: #000000; font-weight: 700; text-decoration: none; vertical-align: baseline; font-size: 9pt; font-family: "Open Sans"; font-style: normal }
-        .c1 { color: #b7b7b7; font-weight: 700; text-decoration: none; vertical-align: baseline; font-size: 9pt; font-family: "Open Sans"; font-style: normal }
-        .c6 { padding-top: 16pt; padding-bottom: 0pt; line-height: 1.0; page-break-after: avoid; text-align: left; margin-right: 15pt }
-        .c7 { padding-top: 5pt; padding-bottom: 5pt; line-height: 1.0; page-break-after: avoid; text-align: left; margin-right: 15pt }
-        .c8 { color: #000000; text-decoration: none; vertical-align: baseline; font-size: 11pt; font-family: "Merriweather" }
-        .c13 { color: #666666; text-decoration: none; vertical-align: baseline; font-size: 8pt; font-family: "Open Sans" }
-        .c36 { color: #1155cc; text-decoration: none; vertical-align: baseline; font-size: 9pt; font-family: "Merriweather" }
-        .c19 { color: #000000; text-decoration: none; vertical-align: baseline; font-size: 9pt; font-family: "Open Sans" }
-        .c28 { color: #2079c7; text-decoration: none; vertical-align: baseline; font-size: 10pt; font-family: "Open Sans" }
-        .c5 { padding-top: 30pt; padding-bottom: 0pt; line-height: 1.0; text-align: left; margin-right: 15pt }
-        .c24 { color: #666666; text-decoration: none; vertical-align: baseline; font-size: 6pt; font-family: "Merriweather" }
-        .c21 { padding-top: 6pt; padding-bottom: 0pt; line-height: 1.0; text-align: left; margin-right: 15pt }
-        .c10 { color: #666666; text-decoration: none; vertical-align: baseline; font-size: 9pt; font-family: "Merriweather" }
-        .c16 { padding-top: 0pt; padding-bottom: 0pt; line-height: 1.15; text-align: left; margin-right: 15pt }
-        .c27 { color: #1155cc; text-decoration: none; vertical-align: baseline; font-size: 9pt; font-family: "Open Sans" }
-        .c15 { padding-top: 0pt; padding-bottom: 6pt; line-height: 1.0; text-align: left; margin-right: 15pt }
-        .c17 { color: #2079c7; text-decoration: none; vertical-align: baseline; font-size: 9pt; font-family: "Open Sans" }
-        .c32 { color: #000000; text-decoration: none; vertical-align: baseline; font-size: 12pt; font-family: "Merriweather" }
-        .c33 { color: #000000; text-decoration: none; vertical-align: baseline; font-size: 36pt; font-family: "Merriweather" }
-        .c11 { padding-top: 16pt; padding-bottom: 0pt; line-height: 1.3; text-align: left; margin-right: 15pt }
-        .c3 { padding-top: 6pt; padding-bottom: 0pt; line-height: 1.3; text-align: left; margin-right: 15pt }
-        .c23 { border-spacing: 0; border-collapse: collapse; margin-right: auto; margin-left: auto }
-        .c14 { color: #000000; font-weight: 700; font-family: "Open Sans" }
-        .c34 { background-color: #ffffff; max-width: 525.6pt; padding: 28.8pt 43.2pt 43.2pt 43.2pt; margin: 0 auto }
-        .c26 { margin-left: 0pt; list-style-position: inside; text-indent: 45pt }
-        .c20 { padding: 0; margin: 0 }
-        .c29 { color: #1155cc; font-family: "Open Sans" }
-        .c9 { font-weight: 700; font-style: normal }
-        .c18 { font-weight: 700 }
-        .c31 { height: 9pt }
-        .c37 { height: 588pt }
-        .c2 { font-weight: 400 }
-        .c12 { font-style: normal }
-        .c35 { color: #000000 }
-        .c22 { height: 80pt }
-        .c4 { font-style: italic }
-        .title { padding-top: 0pt; color: #000000; font-weight: 700; font-size: 36pt; padding-bottom: 6pt; font-family: "Merriweather"; line-height: 1.0; text-align: left }
-        .subtitle { padding-top: 0pt; color: #000000; font-size: 9pt; padding-bottom: 0pt; font-family: "Open Sans"; line-height: 1.15; text-align: left }
-        li { color: #666666; font-size: 9pt; font-family: "Merriweather" }
-        p { margin: 0; color: #666666; font-size: 9pt; font-family: "Merriweather" }
-        h1 { padding-top: 30pt; color: #2079c7; font-weight: 700; font-size: 9pt; padding-bottom: 0pt; font-family: "Open Sans"; line-height: 1.0; text-align: left }
-        h2 { padding-top: 16pt; color: #000000; font-weight: 700; font-size: 11pt; padding-bottom: 0pt; font-family: "Merriweather"; line-height: 1.0; page-break-after: avoid; text-align: left }
-        h3 { padding-top: 5pt; color: #666666; font-size: 8pt; padding-bottom: 5pt; font-family: "Open Sans"; line-height: 1.0; page-break-after: avoid; text-align: left }
-        h4 { padding-top: 8pt; -webkit-text-decoration-skip: none; color: #666666; text-decoration: underline; text-decoration-skip-ink: none; font-size: 11pt; padding-bottom: 0pt; font-family: "Trebuchet MS"; line-height: 1.3; page-break-after: avoid; text-align: left }
-        h5 { padding-top: 8pt; color: #666666; font-size: 11pt; padding-bottom: 0pt; font-family: "Trebuchet MS"; line-height: 1.3; page-break-after: avoid; text-align: left }
-        h6 { padding-top: 8pt; color: #666666; font-size: 11pt; padding-bottom: 0pt; font-family: "Trebuchet MS"; line-height: 1.3; page-break-after: avoid; font-style: italic; text-align: left }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gourab Mal – CV</title>
+  <meta name="description" content="CV of Gourab Mal – Senior Engineer Web, 5+ years experience in Laravel, Node.js, Vue.js, Generative AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0C0F14;
+      --bg2:       #111520;
+      --bg3:       #181D28;
+      --surface:   #1E2435;
+      --surface2:  #232B3E;
+      --border:    rgba(255,255,255,0.07);
+      --accent:    #4F8EF7;
+      --accent2:   #7FB3FF;
+      --gold:      #C9A84C;
+      --text:      #E8EDF5;
+      --text-mid:  #9BA3B8;
+      --text-dim:  #5C647A;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --sans:      'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent2); }
+
+    /* ── Noise texture ───────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ── Orbs ────────────────────────────── */
+    .orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(130px); pointer-events: none; z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: #4F8EF7; opacity: 0.07; top: -180px; left: -180px; }
+    .orb-2 { width: 400px; height: 400px; background: #6B4AFF; opacity: 0.06; bottom: 5%; right: -100px; }
+
+    /* ── Top bar ─────────────────────────── */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 62px;
+      background: rgba(12,15,20,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+    .topbar-logo span { color: var(--accent); }
+
+    .topbar-actions { display: flex; gap: 0.75rem; align-items: center; }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--text-mid);
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; font-weight: 600;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+      cursor: pointer; border: none;
+    }
+    .btn-print:hover { background: var(--accent2); }
+
+    /* ── Page wrapper ────────────────────── */
+    .page {
+      position: relative; z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 5% 80px;
+    }
+
+    /* ── Header card ─────────────────────── */
+    .cv-header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.4rem 2.8rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cv-header::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #6B4AFF, var(--gold));
+    }
+
+    .cv-name {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+    .cv-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .cv-summary {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 480px;
+    }
+
+    .cv-contact {
+      display: flex; flex-direction: column; gap: 0.55rem;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .cv-contact-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      justify-content: flex-end;
+    }
+    .cv-contact-item .icon {
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    /* ── Two-column layout ───────────────── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    /* ── Section card ────────────────────── */
+    .cv-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .cv-section:last-child { margin-bottom: 0; }
+
+    .section-label {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.4rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(79,142,247,0.3), transparent);
+    }
+
+    /* ── Experience items ────────────────── */
+    .exp-item { margin-bottom: 1.6rem; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1rem;
+      margin-bottom: 0.2rem;
+      flex-wrap: wrap;
+    }
+    .exp-role {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .exp-date {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(79,142,247,0.1);
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .exp-company {
+      font-size: 0.83rem;
+      color: var(--accent2);
+      font-style: italic;
+      margin-bottom: 0.8rem;
+    }
+    .exp-company span { color: var(--text-dim); font-style: normal; margin-left: 0.3rem; }
+
+    .exp-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .exp-list li {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      padding-left: 1.2rem;
+      position: relative;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+    .exp-list li::before {
+      content: '↳';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+      top: 0.05rem;
+    }
+
+    .exp-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.4rem 0;
+    }
+
+    /* ── Projects ────────────────────────── */
+    .proj-item { margin-bottom: 1.4rem; }
+    .proj-item:last-child { margin-bottom: 0; }
+
+    .proj-name {
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      color: var(--accent2);
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .proj-name::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .proj-desc {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .proj-tags {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+    }
+    .proj-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(79,142,247,0.08);
+      color: var(--accent2);
+      border: 1px solid rgba(79,142,247,0.15);
+    }
+
+    .proj-divider { height: 1px; background: var(--border); margin: 1.2rem 0; }
+
+    /* ── Sidebar ─────────────────────────── */
+    .sidebar .cv-section { margin-bottom: 1.5rem; }
+
+    /* Skills */
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .skill-chip {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      transition: all 0.15s;
+    }
+    .skill-chip:hover {
+      border-color: rgba(79,142,247,0.4);
+      color: var(--accent2);
+    }
+
+    /* Education */
+    .edu-school {
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .edu-degree {
+      font-size: 0.83rem;
+      color: var(--accent2);
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+    .edu-meta {
+      display: flex; gap: 0.8rem; align-items: center;
+      flex-wrap: wrap;
+    }
+    .edu-date { font-size: 0.75rem; color: var(--text-dim); }
+    .edu-gpa {
+      font-size: 0.72rem; font-weight: 700;
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+
+    /* Certs */
+    .cert-item {
+      display: flex; gap: 0.7rem; align-items: flex-start;
+      margin-bottom: 0.85rem;
+    }
+    .cert-item:last-child { margin-bottom: 0; }
+    .cert-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+    }
+    .cert-name {
+      font-size: 0.83rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 0.15rem;
+    }
+    .cert-meta { font-size: 0.73rem; color: var(--text-dim); }
+
+    /* Awards */
+    .award-item { margin-bottom: 1rem; }
+    .award-item:last-child { margin-bottom: 0; }
+    .award-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.15rem;
+      line-height: 1.4;
+    }
+    .award-org { font-size: 0.77rem; color: var(--text-dim); }
+
+    /* Languages */
+    .lang-wrap { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .lang-chip {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+    }
+
+    /* Interests */
+    .interest-text {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      font-weight: 300;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ── Print ───────────────────────────── */
+    @media print {
+      body::before, .orb, .topbar { display: none; }
+      body { background: #fff; color: #111; }
+      .page { padding: 20px; max-width: 100%; }
+      .cv-header, .cv-section { background: #f9f9f9; border-color: #ddd; }
+      .cv-name, .exp-role, .proj-name, .edu-school { color: #111; }
+      .cv-title { color: #8a6a20; }
+      .section-label, .exp-date, .cert-dot, .proj-name::before { color: #2563eb; }
+      .cv-summary, .exp-list li, .proj-desc, .cert-meta, .award-org, .interest-text { color: #444; }
+      .skill-chip, .lang-chip { background: #eee; border-color: #ccc; color: #333; }
+      .proj-tag { background: #dbeafe; color: #1d4ed8; border-color: #93c5fd; }
+      .edu-gpa { background: #fef9c3; color: #854d0e; border-color: #fde047; }
+    }
+
+    /* ── Responsive ──────────────────────── */
+    @media (max-width: 720px) {
+      .cv-header { grid-template-columns: 1fr; }
+      .cv-contact { align-items: flex-start; text-align: left; }
+      .cv-contact-item { justify-content: flex-start; }
+      .cv-body { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="c34 doc-content">
-    <p class="c21 c31"><span class="c2 c12 c24"></span></p>
-    <table class="c23">
-        <tr class="c22">
-            <td class="c30" colspan="1" rowspan="1">
-                <p class="c15 title" id="h.x8fm1uorkbaw"><span class="c9 c33">Gourab Mal</span></p>
-                <p class="c16 subtitle" id="h.ymi089liagec"><span class="c19 c2 c12">A result-oriented Senior Engineer - Web with 4+ years of experience in building scalable web applications using Laravel, Node.js, Vue.js, MySQL, and more. Skilled in developing efficient backend systems and dynamic user-focused frontends.</span></p>
-            </td>
-            <td class="c25" colspan="1" rowspan="1">
-                <p class="c16"><span class="c19 c2 c12">Ramjibanpur,</span></p>
-                <p class="c16"><span class="c2 c12 c19">Paschim Medinipur, 721242, West Bengal</span></p>
-                <p class="c16"><span class="c0 c14">9064884148</span></p>
-                <p class="c16"><span class="c14">gourabmal4@gmail.com </span><span class="c18 c29">gourabmal.github.io</span></p>
-            </td>
-        </tr>
-        <tr class="c37">
-            <td class="c30" colspan="1" rowspan="1">
-                <h1 class="c5" id="h.y7d3xdxnr44m"><span class="c17 c9">EXPERIENCE</span></h1>
-                <h2 class="c6" id="h.rfgvkg2ifhfd"><span>Codeclouds IT Solutions Pvt. Ltd.</span><span class="c35">, </span><span class="c2">Kolkata — </span><span class="c2 c4">Senior Engineer - Web</span></h2>
-                <h3 class="c7" id="h.n64fgzu3lwuy"><span>JAN 2023 - PRESENT</span></h3>
-                <p class="c21"><span class="c10 c2 c12">● Develop and maintain scalable web applications using various technologies. </span></p>
-                <p class="c21"><span class="c10 c2 c12">● Collaborate with cross-functional teams to deliver high-quality products.</span></p>
-                <p class="c21"><span class="c10 c2 c12">● Handle version control using Git & GitHub. </span></p>
-                <p class="c21"><span>● Manage CPanel-based servers and perform deployment tasks. </span></p>
-                <h2 class="c6" id="h.wj0puh61kxsr"><span>Swadesh Softwares Pvt. Ltd.</span><span class="c35">, </span><span class="c2">Durgapur — </span><span class="c2 c4 c8">Web Developer</span></h2>
-                <h3 class="c7" id="h.8hk593fs3sag"><span>FEB </span><span class="c7">2021 - DEC 2022</span></h3>
-                <p class="c21"><span class="c10 c2 c12">● Developed efficient web applications using multiple skills. </span></p>
-                <p class="c21"><span class="c10 c2 c12">● Implemented various payment gateways and SMS gateways. </span></p>
-                <h1 class="c5" id="h.yk8luflkpwij"><span>EDUCATION</span></h1>
-                <h2 class="c6" id="h.6wymnhinx9q5"><span>Mallabhum Institute of Technology</span><span>, </span><span class="c2">Bishnupur — </span><span class="c8 c2 c4">B.Tech</span></h2>
-                <h3 class="c7" id="h.7vtcyzeczjot"><span>AUG 2016 - JUL 2020</span></h3>
-                <p class="c3"><span class="c10 c2 c12">Computer Science and Engineering | DGPA: 8.81</span></p>
-                <h1 class="c5" id="h.jhv78pp9wtzd"><span>PROJECTS</span></h1>
-                <h2 class="c6" id="h.vm051rmyhoww"><span>E-commerce Platforms</span><span> </span><span class="c2">— </span></h2>
-                <p class="c3"><span class="c10 c2 c12">Developed multiple platforms with features like payment gateway integration and user authentication. </span></p>
-                <h2 class="c6" id="h.ltxnjtoqvhsa"><span>Content Management Systems</span><span class="c2">— </span></h2>
-                <p class="c3"><span class="c10 c2 c12">Built role-based CMS platforms with scheduling and media management capabilities. </span></p>
-                <h2 class="c6" id="h.cjafzsafcsn"><span>Web Monitoring Service:</span><span class="c2">— </span></h2>
-                <p class="c3"><span class="c10 c2 c12">Created a Node.js-based tool to monitor websites and detect visual changes.</span></p>
-                <p class="c3 c31"><span class="c10 c2 c12"></span></p>
-            </td>
-            <td class="c25" colspan="1" rowspan="1">
-                <h1 class="c5" id="h.ca0awj8022e2"><span class="c17 c9">SKILLS</span></h1>
-                <p class="c21"><span class="c10 c2 c12">● Laravel</span></p>
-                <p class="c21"><span class="c10 c2 c12">● Node JS</span></p>
-                <p class="c21"><span class="c10 c2 c12">● Express JS</span></p>
-                <p class="c21"><span class="c10 c2 c12">● Vue JS</span></p>
-                <p class="c21"><span class="c10 c2 c12">● MySQL</span></p>
-                <p class="c21"><span class="c10 c2 c12">● PHP</span></p>
-                <p class="c21"><span class="c10 c2 c12">● HTML</span></p>
-                <p class="c21"><span class="c10 c2 c12">● JavaScript</span></p>
-                <p class="c21"><span class="c10 c2 c12">● jQuery</span></p>
-                <p class="c21"><span class="c10 c2 c12">● Git & GitHub</span></p>
-                <p class="c21"><span class="c10 c2 c12">● REST APIs</span></p>
-                <p class="c21"><span class="c10 c2 c12">● AJAX</span></p>
-                <h1 class="c5" id="h.tuxh7mwdaxox"><span class="c17 c9">AWARDS</span></h1>
-                <p class="c11"><span class="c18">Promising Stars Empowering the Team</span><span> – </span><span class="c4">Swadesh Softwares Pvt. Ltd.</span><span> (2022).</span></p>
-                <p class="c3"><span class="c18">Lakshmi Narayana Memorial Award</span><span> – </span><span class="c4">Topper</span><span class="c10 c2 c12">, Mallabhum Institute of Technology (2018).</span></p>
-                <h1 class="c5" id="h.jj7r1cythu3m"><span class="c9 c17">CERTIFICATIONS</span></h1>
-                <p class="c11"><span class="c18">NodeJS - The Complete Guide.</span><span> – </span><span class="c4">Udemy</span><span> (2023).</span></p>
-                <p class="c3"><span class="c18">Vue Developer Bootcamp.</span><span> – </span><span class="c4">Udemy </span><span class="c10 c2 c12">(2024).</span></p>
-                <p class="c3"><span class="c18">The Git & Github Bootcamp.</span><span> – </span><span class="c4">Udemy </span><span>(2025).</span></p>
-                <h1 class="c5" id="h.cxxkes25b26"><span>LANGUAGES</span></h1>
-                <p class="c11"><span class="c10 c2 c12">English, Hindi, Bengali</span></p>
-                <h1 class="c5" id="h.y44a5o3b4j4o"><span class="c17 c9">INTERESTS</span></h1>
-                <p class="c11"><span>In my leisure, I find joy in crafting poems and stories.</span></p>
-            </td>
-        </tr>
-    </table>
-    <p class="c3 c31"><span class="c10 c2 c12"></span></p>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="topbar-logo">Gourab<span>.</span></div>
+    <div class="topbar-actions">
+      <a href="./index.html" class="btn-back">← Portfolio</a>
+      <button class="btn-print" onclick="window.print()">⬇ Download / Print</button>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- Header -->
+    <div class="cv-header">
+      <div>
+        <h1 class="cv-name">Gourab Mal</h1>
+        <p class="cv-title">Senior Engineer – Web</p>
+        <p class="cv-summary">
+          Results-driven Senior Engineer – Web with 5+ years of experience building scalable,
+          high-performance web applications. Expertise in Laravel, Node.js, Vue.js, and modern
+          backend systems. Strong focus on Generative AI and AI integrations, with hands-on
+          experience building intelligent automation tools and SEO-driven content systems.
+        </p>
+      </div>
+      <div class="cv-contact">
+        <div class="cv-contact-item"><span class="icon">📍</span> Ramjibanpur, WB – 721242</div>
+        <div class="cv-contact-item"><span class="icon">📞</span> 9064884148</div>
+        <div class="cv-contact-item"><span class="icon">✉️</span> gourabmal4@gmail.com</div>
+        <div class="cv-contact-item"><span class="icon">🌐</span>
+          <a href="https://gourabmal.github.io" target="_blank">gourabmal.github.io</a>
+        </div>
+        <div class="cv-contact-item"><span class="icon">💼</span>
+          <a href="https://www.linkedin.com/in/gourabmal/" target="_blank">linkedin.com/in/gourabmal</a>
+        </div>
+        <div class="cv-contact-item"><span class="icon">🐙</span>
+          <a href="https://github.com/gourabmal" target="_blank">github.com/gourabmal</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="cv-body">
+
+      <!-- Main column -->
+      <div class="main-col">
+
+        <!-- Experience -->
+        <div class="cv-section">
+          <div class="section-label">Experience</div>
+
+          <div class="exp-item">
+            <div class="exp-top">
+              <div class="exp-role">Senior Engineer – Web</div>
+              <div class="exp-date">Jan 2023 – Present</div>
+            </div>
+            <div class="exp-company">Codeclouds IT Solutions Pvt. Ltd. <span>· Kolkata</span></div>
+            <ul class="exp-list">
+              <li>Designed and developed scalable web applications using Laravel, Node.js, and Vue.js</li>
+              <li>Built and integrated AI-powered features for content generation and SEO optimization</li>
+              <li>Integrated third-party APIs, payment gateways, and automation tools</li>
+              <li>Collaborated with cross-functional teams to deliver high-quality, production-ready solutions</li>
+              <li>Managed deployments, server configurations, and version control (Git/GitHub)</li>
+            </ul>
+          </div>
+
+          <div class="exp-divider"></div>
+
+          <div class="exp-item">
+            <div class="exp-top">
+              <div class="exp-role">Web Developer</div>
+              <div class="exp-date">Feb 2021 – Dec 2022</div>
+            </div>
+            <div class="exp-company">Swadesh Softwares Pvt. Ltd. <span>· Durgapur</span></div>
+            <ul class="exp-list">
+              <li>Developed dynamic web applications using PHP, Laravel, and JavaScript</li>
+              <li>Integrated multiple payment gateways — Stripe, PayPal, Razorpay</li>
+              <li>Improved application performance and optimized backend processes</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="cv-section">
+          <div class="section-label">Projects</div>
+
+          <div class="proj-item">
+            <div class="proj-name">AI Article Generator & SEO Optimizer (WordPress Plugin)</div>
+            <p class="proj-desc">
+              Custom WordPress plugin integrating Generative AI (Claude) for automated content creation
+              and SEO optimization. Implemented keyword analysis, content structuring, and ranking
+              suggestions. Reduced manual content effort through AI-driven automation.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">WordPress</span>
+              <span class="proj-tag">Claude AI</span>
+              <span class="proj-tag">PHP</span>
+              <span class="proj-tag">Generative AI</span>
+              <span class="proj-tag">SEO</span>
+            </div>
+          </div>
+
+          <div class="proj-divider"></div>
+
+          <div class="proj-item">
+            <div class="proj-name">E-commerce Platforms</div>
+            <p class="proj-desc">
+              Developed multiple scalable platforms with user authentication, payment gateway
+              integration, and full admin dashboards.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Laravel</span>
+              <span class="proj-tag">Vue.js</span>
+              <span class="proj-tag">Stripe</span>
+              <span class="proj-tag">PayPal</span>
+            </div>
+          </div>
+
+          <div class="proj-divider"></div>
+
+          <div class="proj-item">
+            <div class="proj-name">Content Management Systems (CMS)</div>
+            <p class="proj-desc">
+              Built role-based CMS platforms with scheduling, media handling, and dynamic content control.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Laravel</span>
+              <span class="proj-tag">Role-based Auth</span>
+              <span class="proj-tag">Media Management</span>
+            </div>
+          </div>
+
+          <div class="proj-divider"></div>
+
+          <div class="proj-item">
+            <div class="proj-name">Website Monitoring Tool</div>
+            <p class="proj-desc">
+              Node.js-based application that tracks visual changes on websites by capturing and
+              comparing screenshots. Detects design modifications and sends alerts on discrepancies.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Node.js</span>
+              <span class="proj-tag">Puppeteer</span>
+              <span class="proj-tag">Automation</span>
+              <span class="proj-tag">Alerting</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /main-col -->
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+
+        <!-- Skills -->
+        <div class="cv-section">
+          <div class="section-label">Skills</div>
+          <div style="margin-bottom:0.8rem">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">Backend</div>
+            <div class="skills-wrap">
+              <span class="skill-chip">Laravel</span>
+              <span class="skill-chip">PHP</span>
+              <span class="skill-chip">Node.js</span>
+              <span class="skill-chip">Express.js</span>
+            </div>
+          </div>
+          <div style="margin-bottom:0.8rem">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">Frontend</div>
+            <div class="skills-wrap">
+              <span class="skill-chip">Vue.js</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">HTML</span>
+              <span class="skill-chip">jQuery</span>
+            </div>
+          </div>
+          <div style="margin-bottom:0.8rem">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">Database & Tools</div>
+            <div class="skills-wrap">
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">Git</span>
+              <span class="skill-chip">REST APIs</span>
+              <span class="skill-chip">AJAX</span>
+              <span class="skill-chip">cPanel</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">AI & Modern Tech</div>
+            <div class="skills-wrap">
+              <span class="skill-chip">Generative AI</span>
+              <span class="skill-chip">AI Integration</span>
+              <span class="skill-chip">Prompt Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section">
+          <div class="section-label">Education</div>
+          <div class="edu-school">Mallabhum Institute of Technology</div>
+          <div class="edu-degree">B.Tech – Computer Science & Engineering</div>
+          <div class="edu-meta">
+            <span class="edu-date">Aug 2016 – Jul 2020</span>
+            <span class="edu-gpa">DGPA 8.81</span>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cv-section">
+          <div class="section-label">Certifications</div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">ChatGPT Masters: Generative AI, Prompt Engineering</div>
+              <div class="cert-meta">Udemy · 2024</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">NodeJS – The Complete Guide</div>
+              <div class="cert-meta">Udemy · 2023</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">Vue Developer Bootcamp</div>
+              <div class="cert-meta">Udemy · 2024</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">Git & GitHub Bootcamp</div>
+              <div class="cert-meta">Udemy · 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Awards -->
+        <div class="cv-section">
+          <div class="section-label">Awards</div>
+          <div class="award-item">
+            <div class="award-title">Promising Stars Empowering the Team</div>
+            <div class="award-org">Swadesh Softwares Pvt. Ltd. · 2022</div>
+          </div>
+          <div class="award-item">
+            <div class="award-title">Lakshmi Narayana Memorial Award</div>
+            <div class="award-org">Topper · Mallabhum Institute of Technology · 2018</div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="cv-section">
+          <div class="section-label">Languages</div>
+          <div class="lang-wrap">
+            <span class="lang-chip">English</span>
+            <span class="lang-chip">Hindi</span>
+            <span class="lang-chip">Bengali</span>
+          </div>
+        </div>
+
+        <!-- Interests -->
+        <div class="cv-section">
+          <div class="section-label">Interests</div>
+          <p class="interest-text">In my leisure, I find joy in crafting poems and stories — creativity in language shapes how I approach problem-solving in engineering.</p>
+        </div>
+
+      </div><!-- /sidebar -->
+
+    </div><!-- /cv-body -->
+  </div><!-- /page -->
+
 </body>
 </html>
