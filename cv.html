@@ -410,6 +410,14 @@
       font-style: italic;
     }
 
+    .logo-img {
+        height: 120px;
+        width: auto;
+        object-fit: contain;
+        margin-top: 15px;
+        margin-left: -49px;
+    }
+
     /* ── Print ───────────────────────────── */
     @media print {
       body::before, .orb, .topbar { display: none; }
@@ -441,7 +449,7 @@
 
   <!-- Top bar -->
   <div class="topbar">
-    <div class="topbar-logo">Gourab M<span>.</span></div>
+    <div class="topbar-logo"><img src="assets/logo/GM__ logo.png" alt="Gourab Mal Logo" class="logo-img"></div>
     <div class="topbar-actions">
       <a href="https://gourabmal.github.io/" class="btn-back">← Portfolio</a>
       <button class="btn-print" onclick="window.print()">⬇ Download / Print</button>
