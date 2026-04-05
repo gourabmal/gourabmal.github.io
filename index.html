@@ -1,365 +1,1279 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <title>Gourab Mal | Senior Engineer - Web</title>
-  <meta name="description"
-    content="A result-oriented Senior Engineer - Web with proven expertise in building and managing scalable web applications, focused on delivering high-performance solutions and enhancing user experience to drive product success and business growth." />
+  <title>Gourab Mal | Senior Engineer – Web</title>
+  <meta name="description" content="Senior Engineer – Web with 5+ years building scalable applications using Laravel, Node.js, Vue.js, and Generative AI." />
   <meta name="author" content="Gourab Mal" />
-  <meta name="google-site-verification" content="wX2xdkxqjrC4rA2EM-9bbaVpiEEFG8ae5azgeZDd-oo" />
-
-  <meta property="og:title" content="Gourab Mal | Senior Engineer - Web" />
-  <meta property="og:site_name" content="Gourab Mal Portfolio Website" />
-  <meta property="og:url" content="https://gourabmal.github.io/" />
-  <meta property="og:description"
-    content="A result-oriented Senior Engineer - Web with proven expertise in building and managing scalable web applications, focused on delivering high-performance solutions and enhancing user experience to drive product success and business growth." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://i.ibb.co/C8Wnkrt/pretty-snap-2022-3-29-16-11.png" />
-
-  <link rel="stylesheet" href="css/style.css" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Variables ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0C0F14;
+      --bg2:       #111520;
+      --bg3:       #181D28;
+      --surface:   #1E2435;
+      --border:    rgba(255,255,255,0.07);
+      --accent:    #4F8EF7;
+      --accent2:   #7FB3FF;
+      --gold:      #C9A84C;
+      --text:      #E8EDF5;
+      --text-mid:  #9BA3B8;
+      --text-dim:  #5C647A;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --sans:      'DM Sans', sans-serif;
+      --r:         12px;
+      --r-lg:      20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Noise texture overlay ─────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ── Glow orbs background ──────────────────────────── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.12;
+    }
+    .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -200px; }
+    .orb-2 { width: 500px; height: 500px; background: #6B4AFF; bottom: 10%; right: -150px; }
+    .orb-3 { width: 350px; height: 350px; background: var(--gold); top: 50%; left: 40%; opacity: 0.06; }
+
+    /* ── Nav ───────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5%;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      backdrop-filter: blur(20px);
+      background: rgba(12,15,20,0.75);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.06em !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--accent2) !important; transform: translateY(-1px); }
+
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .ham span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+
+    /* ── Mobile menu ───────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 68px; left: 0; right: 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 5%;
+      z-index: 99;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .mobile-menu a { font-size: 0.95rem; font-weight: 500; color: var(--text-mid); }
+    .mobile-menu a:hover { color: var(--text); }
+
+    /* ── Hero ──────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; z-index: 1;
+    }
+
+    .hero-inner {
+      max-width: 820px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: 100px;
+      background: rgba(79,142,247,0.07);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent2);
+    }
+
+    .hero-role {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--gold);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(79,142,247,0.35); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent;
+      color: var(--text-mid);
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .hero-socials {
+      display: flex; gap: 1rem; align-items: center;
+    }
+    .hero-social-link {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-dim);
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .hero-social-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(79,142,247,0.07);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      position: absolute;
+      right: 5%;
+      bottom: 12%;
+      display: flex; flex-direction: column; gap: 1.2rem;
+      z-index: 1;
+    }
+    .hero-stat {
+      text-align: right;
+    }
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--text);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── Section base ──────────────────────────────────── */
+    section { position: relative; z-index: 1; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .sec-pad { padding: 100px 0; }
+
+    .sec-label {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .sec-label::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--accent);
+    }
+
+    .sec-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .sec-sub {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .sec-header { margin-bottom: 3.5rem; }
+
+    /* ── About ─────────────────────────────────────────── */
+    #about { background: var(--bg2); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 0.97rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .about-text a { color: var(--accent); border-bottom: 1px solid rgba(79,142,247,0.3); transition: border-color 0.2s; }
+    .about-text a:hover { border-color: var(--accent); }
+
+    .skills-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.2rem;
+    }
+
+    .skills-grid {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+
+    .skill-tag {
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent2);
+      background: rgba(79,142,247,0.06);
+    }
+
+    /* ── Experience ────────────────────────────────────── */
+    #experience { background: var(--bg); }
+
+    .exp-timeline {
+      display: flex; flex-direction: column; gap: 0;
+      position: relative;
+    }
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 15%, var(--border) 85%, transparent);
+    }
+
+    .exp-item {
+      padding: 0 0 3rem 2.5rem;
+      position: relative;
+    }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -4px; top: 6px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79,142,247,0.15);
+    }
+
+    .exp-meta {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .exp-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(79,142,247,0.1);
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+    }
+    .exp-company {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .exp-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .exp-location {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.55rem;
+    }
+    .exp-bullets li {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      padding-left: 1.2rem;
+      position: relative;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: '↳';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* ── Projects ──────────────────────────────────────── */
+    #projects { background: var(--bg2); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.8rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), #6B4AFF);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .proj-card:hover {
+      border-color: rgba(79,142,247,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .proj-card:hover::before { opacity: 1; }
+
+    .proj-icon {
+      width: 44px; height: 44px;
+      background: rgba(79,142,247,0.1);
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .proj-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .proj-desc {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+
+    .proj-tags {
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+    }
+    .proj-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(79,142,247,0.08);
+      color: var(--accent2);
+      border: 1px solid rgba(79,142,247,0.15);
+    }
+
+    /* Featured project card */
+    .proj-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .proj-card.featured .proj-content { order: 1; }
+    .proj-card.featured .proj-visual { order: 2; }
+
+    .proj-visual {
+      background: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(107,74,255,0.1));
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: 12px;
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+
+    /* ── Education ─────────────────────────────────────── */
+    #education { background: var(--bg); }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2rem 2.2rem;
+      display: flex; align-items: flex-start; gap: 1.8rem;
+      max-width: 680px;
+    }
+
+    .edu-icon {
+      width: 52px; height: 52px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .edu-school { font-size: 0.9rem; color: var(--accent2); margin-bottom: 0.5rem; }
+    .edu-meta { font-size: 0.82rem; color: var(--text-dim); display: flex; gap: 1.2rem; }
+    .edu-gpa {
+      background: rgba(201,168,76,0.1);
+      color: var(--gold);
+      padding: 0.15rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+
+    /* ── Certifications ────────────────────────────────── */
+    #certifications { background: var(--bg2); }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.4rem 1.6rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .cert-card:hover {
+      border-color: rgba(79,142,247,0.3);
+      transform: translateY(-2px);
+    }
+    .cert-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .cert-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+    .cert-meta { font-size: 0.75rem; color: var(--text-dim); }
+
+    /* ── Awards ────────────────────────────────────────── */
+    #awards { background: var(--bg); }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+    .award-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .award-card::after {
+      content: '★';
+      position: absolute; top: 1.2rem; right: 1.4rem;
+      font-size: 1.8rem;
+      color: rgba(201,168,76,0.15);
+    }
+    .award-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+    .award-title { font-family: var(--serif); font-size: 1.05rem; color: var(--gold); margin-bottom: 0.4rem; }
+    .award-org { font-size: 0.85rem; color: var(--text-mid); font-weight: 300; }
+    .award-year { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.8rem; font-weight: 600; letter-spacing: 0.06em; }
+
+    /* ── Contact ───────────────────────────────────────── */
+    #contact { background: var(--bg2); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .contact-info-desc {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .contact-items { display: flex; flex-direction: column; gap: 0.8rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.8rem;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+    }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .contact-socials { display: flex; gap: 0.7rem; margin-top: 2rem; }
+    .contact-social {
+      width: 40px; height: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      color: var(--text-dim);
+      transition: all 0.2s;
+    }
+    .contact-social:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(79,142,247,0.07);
+      transform: translateY(-2px);
+    }
+
+    .contact-form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+    }
+    .form-row { margin-bottom: 1.2rem; }
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+    .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+
+    /* ── Footer ────────────────────────────────────────── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      position: relative; z-index: 1;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text-mid);
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--text-dim); }
+    .footer-copy a { color: var(--accent); }
+
+    /* ── Divider ───────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: 0 5%;
+    }
+
+    /* ── Scroll fade-in ────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .ham { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .proj-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .proj-card.featured .proj-visual { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-stats { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 2.6rem; }
+    }
+  </style>
 </head>
-
 <body>
-  <header class="header">
-    <div class="header__content">
-      <div class="header__logo-container">
-        <div class="header__logo-img-cont">
-          <img src="./assets/logo/logo-me.png" alt="Gourab Mal Logo Image"
-            class="header__logo-img" />
-        </div>
-        <span class="header__logo-sub">Gourab Mal</span>
-      </div>
-      <div class="header__main">
-        <ul class="header__links">
-          <li class="header__link-wrapper">
-            <a href="./" class="header__link"> Home </a>
-          </li>
-          <li class="header__link-wrapper">
-            <a href="./#about" class="header__link">About </a>
-          </li>
-          <li class="header__link-wrapper">
-            <a href="./#projects" class="header__link"> Projects </a>
-          </li>
-          <li class="header__link-wrapper">
-            <a href="./cv.html" class="header__link" target='_blank'>My CV </a>
-          </li>
-          <li class="header__link-wrapper">
-            <a href="./#contact" class="header__link"> Contact </a>
-          </li>
-        </ul>
-        <div class="header__main-ham-menu-cont">
-          <img src="./assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" />
-          <img src="./assets/svg/ham-menu-close.svg" alt="hamburger menu close"
-            class="header__main-ham-menu-close d-none" />
-        </div>
-      </div>
+
+  <!-- Background orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">Gourab<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./cv.html" target="_blank" class="nav-cta">View CV</a></li>
+    </ul>
+    <div class="ham" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
-    <div class="header__sm-menu">
-      <div class="header__sm-menu-content">
-        <ul class="header__sm-menu-links">
-          <li class="header__sm-menu-link">
-            <a href="./"> Home </a>
-          </li>
+  </nav>
 
-          <li class="header__sm-menu-link">
-            <a href="./#about"> About </a>
-          </li>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+      <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="./cv.html" target="_blank" onclick="closeMenu()">View CV</a></li>
+    </ul>
+  </div>
 
-          <li class="header__sm-menu-link">
-            <a href="./#projects"> Projects </a>
-          </li>
-
-          <li class="header__sm-menu-link">
-            <a href="./cv.html" target="_blank"> My CV </a>
-          </li>
-
-          <li class="header__sm-menu-link">
-            <a href="./#contact"> Contact </a>
-          </li>
-        </ul>
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-inner fade-in">
+      <div class="hero-eyebrow">Available for opportunities</div>
+      <h1 class="hero-name">Hey, I'm<br><em>Gourab Mal</em></h1>
+      <p class="hero-role">Senior Engineer – Web</p>
+      <p class="hero-desc">
+        A result-oriented engineer with proven expertise in building and managing scalable web applications.
+        Focused on delivering high-performance solutions with a deep interest in
+        <strong style="color:var(--text)">Generative AI</strong> and intelligent automation.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects →</a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
       </div>
-    </div>
-  </header>
-  <section class="home-hero">
-    <div class="home-hero__content">
-      <h1 class="heading-primary">Hey, I'm Gourab Mal</h1>
-      <div class="home-hero__info">
-        <p class="text-primary">A result-oriented Senior Engineer - Web with proven expertise in building and managing scalable web applications, focused on delivering high-performance solutions and enhancing user experience to drive product success and business growth.
-        </p>
-      </div>
-      <div class="home-hero__cta">
-        <a href="./#projects" class="btn btn--bg">Projects</a>
-      </div>
-    </div>
-    <div class="home-hero__socials">
-      <div class="home-hero__social">
-        <a href="https://www.linkedin.com/in/gourabmal/" class="home-hero__social-icon-link" rel="noreferrer"
-          target="_blank">
-          <img src="./assets/svg/linkedin-dark.svg" alt="Gourab Mal Linkedin Profile" class="home-hero__social-icon" />
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/gourabmal/" class="hero-social-link" target="_blank" rel="noreferrer" title="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-      </div>
-      <div class="home-hero__social">
-        <a href="https://x.com/GourabMal?t=WIPdYLpzR74lJZV0h2IaQQ&s=09" class="home-hero__social-icon-link"
-          rel="noreferrer" target="_blank">
-          <img src="./assets/svg/twitter-dark.svg" alt="Gourab Mal Twitter Profile / X Handle"
-            class="home-hero__social-icon" />
+        <a href="https://github.com/gourabmal" class="hero-social-link" target="_blank" rel="noreferrer" title="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
         </a>
-      </div>
-      <div class="home-hero__social">
-        <a href="https://youtube.com/@projectexperiments8015?si=RGTLD_dvAUJFcnS6"
-          class="home-hero__social-icon-link home-hero__social-icon-link--bd-none" rel="noreferrer" target="_blank">
-          <img src="./assets/svg/yt-dark.svg" alt="Gourab Mal Youtube Channel" class="home-hero__social-icon" />
+        <a href="https://x.com/GourabMal" class="hero-social-link" target="_blank" rel="noreferrer" title="Twitter / X">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
-      </div>
-      <div class="home-hero__social">
-        <a href="https://github.com/gourabmal" class="home-hero__social-icon-link" rel="noreferrer" target="_blank">
-          <img src="./assets/svg/github-dark.svg" alt="Gourab Mal Github Profile" class="home-hero__social-icon" />
+        <a href="https://youtube.com/@projectexperiments8015" class="hero-social-link" target="_blank" rel="noreferrer" title="YouTube">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
-      </div>
-
-      <div class="home-hero__social">
-        <a href="https://gourabsdiary.blogspot.com/" class="home-hero__social-icon-link" rel="noreferrer"
-          target="_blank">
-          <img src="./assets/svg/book-dark.svg" alt="Gourab Mal Personl Blog Profile" class="home-hero__social-icon" />
+        <a href="https://gourabsdiary.blogspot.com/" class="hero-social-link" target="_blank" rel="noreferrer" title="Blog">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
         </a>
       </div>
     </div>
-    <div class="home-hero__mouse-scroll-cont">
-      <div class="mouse"></div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">5+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">20+</div>
+        <div class="hero-stat-label">Projects Delivered</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">Certifications</div>
+      </div>
     </div>
   </section>
-  <section id="about" class="about sec-pad">
-    <div class="main-container">
-      <h2 class="heading heading-sec heading-sec__mb-med">
-        <span class="heading-sec__main">About Me</span>
-        <span class="heading-sec__sub">
-          Here you will find more information about me, what I do, and my
-          current skills mostly in terms of programming and technology
-        </span>
-      </h2>
-      <div class="about__content">
-        <div class="about__content-main">
-          <h3 class="about__content-title">Get to know me!</h3>
-          <div class="about__content-details">
-            <p class="about__content-details-para">
-              I'm a <strong>Senior Engineer - Web</strong> specializing in building and managing websites and web
+
+  <!-- About -->
+  <section id="about" class="sec-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="fade-in">
+          <div class="sec-label">About Me</div>
+          <h2 class="sec-title">Get to<br><em style="font-style:italic;color:var(--accent2)">know me!</em></h2>
+          <div class="about-text" style="margin-top:1.5rem">
+            <p>
+              I'm a <strong>Senior Engineer – Web</strong> specializing in building and managing websites and web
               applications to ensure their success and efficiency. Check out some of my work in the
               <strong>Projects</strong> section.
             </p>
-            <p class="about__content-details-para">
+            <p>
               I enjoy sharing insights and knowledge gained over the years in <strong>web development</strong> to help
-              others in the developer community. Feel free to connect or follow me on <a rel="noreferrer"
-                href="https://www.linkedin.com/in/gourabmal/" target="_blank">Linkedin</a>, where I post valuable
-              content related to web development and programming.
+              others in the developer community. Feel free to connect on
+              <a href="https://www.linkedin.com/in/gourabmal/" target="_blank" rel="noreferrer">LinkedIn</a>,
+              where I post valuable content related to web development and programming.
             </p>
-            <!-- <p class="about__content-details-para">
-                I'm open to <strong>Job</strong>opportunities where I can contribute, learn, and grow. If you have an opportunity that aligns with my skills and experience, don't hesitate to get in touch.
-              </p> -->
+            <p>
+              Beyond code, I love <strong>writing poems and stories</strong> — creativity in language shapes how I approach
+              problem-solving in engineering too.
+            </p>
           </div>
-          <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr">Contact</a>
+          <a href="#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex">Contact Me →</a>
         </div>
-        <div class="about__content-skills">
-          <h3 class="about__content-title">My Skills</h3>
-          <div class="skills">
-            <div class="skills__skill">Laravel</div>
-            <div class="skills__skill">Node JS</div>
-            <div class="skills__skill">Express JS</div>
-            <div class="skills__skill">Vue JS</div>
-            <div class="skills__skill">MySQL</div>
-            <div class="skills__skill">JavaScript</div>
-            <div class="skills__skill">jQuery</div>
-            <div class="skills__skill">PHP</div>
-            <div class="skills__skill">GIT & GitHub</div>
-            <div class="skills__skill">AJAX</div>
-            <div class="skills__skill">REST APIs</div>
-            <div class="skills__skill">Konnektive CRM</div>
-            <div class="skills__skill">Checkout Champ CRM</div>
-            <div class="skills__skill">Vrio CRM</div>
-            <div class="skills__skill">Sticky CRM</div>
+        <div class="fade-in" style="transition-delay:0.15s">
+          <div class="skills-title">Technical Skills</div>
+          <div class="skills-grid">
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">jQuery</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">AJAX</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Generative AI</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">Konnektive CRM</span>
+            <span class="skill-tag">Checkout Champ</span>
+            <span class="skill-tag">Vrio CRM</span>
+            <span class="skill-tag">Sticky CRM</span>
+            <span class="skill-tag">cPanel</span>
+            <span class="skill-tag">Payment Gateways</span>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="projects" class="projects sec-pad">
-    <div class="main-container">
-      <h2 class="heading heading-sec heading-sec__mb-bg">
-        <span class="heading-sec__main">Projects</span>
-        <span class="heading-sec__sub">
-          Here you will find some of the personal and clients projects that I
-          created with each project containing its own case study
-        </span>
-      </h2>
 
-      <div class="projects__content">
-        <div class="projects__row">
-          <div class="projects__row-img-cont">
-            <img src="./assets/jpg/highqualitymeats.jpg" alt="Software Screenshot" class="projects__row-img"
-              loading="lazy" />
-          </div>
-          <div class="projects__row-content">
-            <h3 class="projects__row-content-title">High Quality Meats</h3>
-            <p class="projects__row-content-desc">
-              High Quality Meats is a successful Ecommerce project that generally sells different type of meats to their
-              customers.
-            </p>
-            <a class='btn btn--med btn--theme dynamicBgClr' href='./project-1.html' target='_blank'>Case Study</a>
-          </div>
-        </div>
-        <div class="projects__row">
-          <div class="projects__row-img-cont">
-            <img src="./assets/jpg/chips.jpg" alt="Software Screenshot" class="projects__row-img" loading="lazy" />
-          </div>
-          <div class="projects__row-content">
-            <h3 class="projects__row-content-title">CHIPS</h3>
-            <p class="projects__row-content-desc">
-              CHIPS is an e-commerce platform for electronics, offering a seamless shopping experience with secure
-              payments and efficient inventory management.
-            </p>
-            <a class='btn btn--med btn--theme dynamicBgClr' href='./project-2.html' target='_blank'>Case Study</a>
-          </div>
-        </div>
-        <div class="projects__row">
-          <div class="projects__row-img-cont">
-            <img src="./assets/jpg/kenosis.jpg" alt="Software Screenshot" class="projects__row-img" loading="lazy" />
-          </div>
-          <div class="projects__row-content">
-            <h3 class="projects__row-content-title">Kenosis</h3>
-            <p class="projects__row-content-desc">
-              Kenosis is a CMS based patient-focused platform providing feedback and assessments on medical experts and
-              hospitals, assisting in critical decisions across Oncology, Haematology, Transplant, and Critical Care
-              segments.
-            </p>
-            <a class='btn btn--med btn--theme dynamicBgClr' href='./project-3.html' target='_blank'>Case Study</a>
-          </div>
-        </div>
-        <div class="projects__row">
-          <div class="projects__row-img-cont">
-            <img src="./assets/jpg/firstaxiscapital.jpg" alt="Software Screenshot" class="projects__row-img"
-              loading="lazy" />
-          </div>
-          <div class="projects__row-content">
-            <h3 class="projects__row-content-title">First Axis Capital</h3>
-            <p class="projects__row-content-desc">
-              First Axis Capital specializes in providing fast and reliable funding solutions, ensuring funds are
-              delivered within 48 hours.
-            </p>
-            <a class='btn btn--med btn--theme dynamicBgClr' href='./project-4.html' target='_blank'>Case Study</a>
-          </div>
-        </div>
-        <div class="projects__row">
-          <div class="projects__row-img-cont">
-            <img src="./assets/jpg/websitemonitoring.jpg" alt="Software Screenshot" class="projects__row-img"
-              loading="lazy" />
-          </div>
-          <div class="projects__row-content">
-            <h3 class="projects__row-content-title">Website Monitoring Tool</h3>
-            <p class="projects__row-content-desc">
-              Website Monitoring Tool is a Node.js-based application that tracks visual changes on websites by capturing
-              and comparing screenshots. It detects design or image modifications and sends alerts when discrepancies
-              are found.
-            </p>
-            <a class='btn btn--med btn--theme dynamicBgClr' href='./project-5.html' target='_blank'>Case Study</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="contact sec-pad dynamicBg">
-    <div class="main-container">
-      <h2 class="heading heading-sec heading-sec__mb-med">
-        <span class="heading-sec__main heading-sec__main--lt">Contact</span>
-        <span class="heading-sec__sub heading-sec__sub--lt">
-          Feel free to Contact me by submitting the form below and I will get
-          back to you as soon as possible
-        </span>
-      </h2>
-      <div class="contact__form-container">
-        <form action='https://formsubmit.co/cd5a3e6d8e056990a84791cb371cd184' class='contact__form' method='post'><input
-            type='hidden' name='form-name' value='form 1' />
-          <div class="contact__form-field">
-            <label class="contact__form-label" for="name">Name</label>
-            <input required placeholder="Enter Your Name" type="text" class="contact__form-input" name="name"
-              id="name" />
-          </div>
-          <div class="contact__form-field">
-            <label class="contact__form-label" for="email">Email</label>
-            <input required placeholder="Enter Your Email" type="email" class="contact__form-input" name="email"
-              id="email" />
-          </div>
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_next" value="https://gourabmal.github.io/thankyou.html">
-          <input type="hidden" name="_captcha" value="false">
-          <div class="contact__form-field">
-            <label class="contact__form-label" for="message">Message</label>
-            <textarea required cols="30" rows="10" class="contact__form-input" placeholder="Enter Your Message"
-              name="message" id="message"></textarea>
-          </div>
-          <button type="submit" class="btn btn--theme contact__btn">
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-  <footer class="main-footer">
-    <div class="main-container">
-      <div class="main-footer__upper">
-        <div class="main-footer__row main-footer__row-1">
-          <h2 class="heading heading-sm main-footer__heading-sm">
-            <span>Social</span>
-          </h2>
-          <div class="main-footer__social-cont">
-            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/gourabmal/">
-              <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="Gourab Mal Linkedin Profile" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://github.com/gourabmal">
-              <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="Gourab Mal Github Profile" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://x.com/GourabMal?t=WIPdYLpzR74lJZV0h2IaQQ&s=09">
-              <img class="main-footer__icon" src="./assets/png/twitter-ico.png"
-                alt="Gourab Mal Twitter Profile / X handle" />
-            </a>
+  <div class="divider"></div>
 
-            <a target="_blank" rel="noreferrer" href="https://gourabsdiary.blogspot.com/">
-              <img class="main-footer__icon" src="./assets/png/blog-ico.png" alt="Gourab Mal Personl Blog Profile" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCIb8_J9lqtiWGMIOdQ5DVsg">
-              <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/yt-ico.png"
-                alt="RammCodes Youtube Channel" />
-            </a>
+  <!-- Experience -->
+  <section id="experience" class="sec-pad">
+    <div class="container">
+      <div class="sec-header fade-in">
+        <div class="sec-label">Career</div>
+        <h2 class="sec-title">Work Experience</h2>
+        <p class="sec-sub">5+ years building production-grade web applications across diverse industries.</p>
+      </div>
+      <div class="exp-timeline">
+        <div class="exp-item fade-in">
+          <div class="exp-meta">
+            <span class="exp-date">Jan 2023 – Present</span>
+            <span class="exp-company">Codeclouds IT Solutions Pvt. Ltd.</span>
           </div>
+          <h3 class="exp-title">Senior Engineer – Web</h3>
+          <p class="exp-location">📍 Kolkata, West Bengal</p>
+          <ul class="exp-bullets">
+            <li>Designed and developed scalable web applications using Laravel, Node.js, and Vue.js</li>
+            <li>Built and integrated AI-powered features for content generation and SEO optimization</li>
+            <li>Integrated third-party APIs, payment gateways, and automation tools</li>
+            <li>Collaborated with cross-functional teams to deliver high-quality, production-ready solutions</li>
+            <li>Managed deployments, server configurations, and version control (Git/GitHub)</li>
+          </ul>
         </div>
-        <div class="main-footer__row main-footer__row-2">
-          <h2 class="heading heading-sm text-lt">Gourab Mal</h2>
-          <p class="main-footer__short-desc">
-            Senior Engineer - Web with expertise in building robust and scalable web applications using Laravel, Node.js, Vue.js, Git, MySQL, JavaScript, and more. Dedicated to crafting efficient backend systems and dynamic frontend experiences that drive product performance and user satisfaction.
+        <div class="exp-item fade-in" style="transition-delay:0.1s">
+          <div class="exp-meta">
+            <span class="exp-date">Feb 2021 – Dec 2022</span>
+            <span class="exp-company">Swadesh Softwares Pvt. Ltd.</span>
+          </div>
+          <h3 class="exp-title">Web Developer</h3>
+          <p class="exp-location">📍 Durgapur, West Bengal</p>
+          <ul class="exp-bullets">
+            <li>Developed dynamic web applications using PHP, Laravel, and JavaScript</li>
+            <li>Integrated multiple payment gateways — Stripe, PayPal, Razorpay</li>
+            <li>Improved application performance and optimized backend processes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Projects -->
+  <section id="projects" class="sec-pad">
+    <div class="container">
+      <div class="sec-header fade-in">
+        <div class="sec-label">Work</div>
+        <h2 class="sec-title">Featured Projects</h2>
+        <p class="sec-sub">Personal and client projects — each crafted with precision and purpose.</p>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Featured -->
+        <div class="proj-card featured fade-in">
+          <div class="proj-content">
+            <div class="proj-icon">🤖</div>
+            <h3 class="proj-title">AI Article Generator & SEO Optimizer</h3>
+            <p class="proj-desc">
+              A custom WordPress plugin integrating Generative AI (Claude) for automated content creation and SEO optimization.
+              Enables high-quality article generation directly from the WP dashboard with keyword analysis and ranking suggestions.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">WordPress</span>
+              <span class="proj-tag">Claude AI</span>
+              <span class="proj-tag">PHP</span>
+              <span class="proj-tag">Generative AI</span>
+              <span class="proj-tag">SEO</span>
+            </div>
+          </div>
+          <div class="proj-visual">🤖</div>
+        </div>
+
+        <div class="proj-card fade-in" style="transition-delay:0.05s">
+          <div class="proj-icon">🥩</div>
+          <h3 class="proj-title">High Quality Meats</h3>
+          <p class="proj-desc">
+            A successful e-commerce project selling different types of meats to customers, featuring full order management and admin dashboard.
           </p>
+          <div class="proj-tags">
+            <span class="proj-tag">E-commerce</span>
+            <span class="proj-tag">Laravel</span>
+            <span class="proj-tag">Vue.js</span>
+            <span class="proj-tag">Payment Gateway</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-in" style="transition-delay:0.1s">
+          <div class="proj-icon">💻</div>
+          <h3 class="proj-title">CHIPS</h3>
+          <p class="proj-desc">
+            An e-commerce platform for electronics, offering a seamless shopping experience with secure payments and efficient inventory management.
+          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">E-commerce</span>
+            <span class="proj-tag">Laravel</span>
+            <span class="proj-tag">MySQL</span>
+            <span class="proj-tag">Stripe</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-in" style="transition-delay:0.15s">
+          <div class="proj-icon">🏥</div>
+          <h3 class="proj-title">Kenosis</h3>
+          <p class="proj-desc">
+            A CMS-based patient-focused platform providing feedback and assessments on medical experts across Oncology, Haematology, Transplant, and Critical Care.
+          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">CMS</span>
+            <span class="proj-tag">Laravel</span>
+            <span class="proj-tag">Healthcare</span>
+            <span class="proj-tag">Role-based Auth</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-in" style="transition-delay:0.2s">
+          <div class="proj-icon">💰</div>
+          <h3 class="proj-title">First Axis Capital</h3>
+          <p class="proj-desc">
+            A fintech platform specializing in fast, reliable funding solutions ensuring funds are delivered within 48 hours with a streamlined application flow.
+          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">Fintech</span>
+            <span class="proj-tag">Node.js</span>
+            <span class="proj-tag">Laravel</span>
+            <span class="proj-tag">REST API</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-in" style="transition-delay:0.25s">
+          <div class="proj-icon">👁️</div>
+          <h3 class="proj-title">Website Monitoring Tool</h3>
+          <p class="proj-desc">
+            A Node.js-based application that tracks visual changes on websites by capturing and comparing screenshots, detecting design modifications and sending alerts.
+          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">Node.js</span>
+            <span class="proj-tag">Automation</span>
+            <span class="proj-tag">Puppeteer</span>
+            <span class="proj-tag">Alerting</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Education -->
+  <section id="education" class="sec-pad">
+    <div class="container">
+      <div class="sec-header fade-in">
+        <div class="sec-label">Background</div>
+        <h2 class="sec-title">Education</h2>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <h3 class="edu-degree">B.Tech in Computer Science & Engineering</h3>
+          <p class="edu-school">Mallabhum Institute of Technology, Bishnupur</p>
+          <div class="edu-meta">
+            <span>Graduated 2020</span>
+            <span class="edu-gpa">DGPA 8.81</span>
+          </div>
         </div>
       </div>
-      <div class="main-footer__lower">
-        &copy; Copyright
-        <script>
-          document.write(new Date().getFullYear());
-        </script>
-        . Made by
-        <a rel="noreferrer" target="_blank" href="https://gourabmal.github.io/">Gourab Mal</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Certifications -->
+  <section id="certifications" class="sec-pad">
+    <div class="container">
+      <div class="sec-header fade-in">
+        <div class="sec-label">Learning</div>
+        <h2 class="sec-title">Certifications</h2>
       </div>
+      <div class="certs-grid">
+        <div class="cert-card fade-in">
+          <div class="cert-icon">🧠</div>
+          <div>
+            <div class="cert-name">ChatGPT Masters: Generative AI, Prompt Engineering, ChatGPT</div>
+            <div class="cert-meta">Udemy · 2024</div>
+          </div>
+        </div>
+        <div class="cert-card fade-in" style="transition-delay:0.08s">
+          <div class="cert-icon">⚙️</div>
+          <div>
+            <div class="cert-name">NodeJS – The Complete Guide</div>
+            <div class="cert-meta">Udemy · 2023</div>
+          </div>
+        </div>
+        <div class="cert-card fade-in" style="transition-delay:0.14s">
+          <div class="cert-icon">💚</div>
+          <div>
+            <div class="cert-name">Vue Developer Bootcamp</div>
+            <div class="cert-meta">Udemy · 2024</div>
+          </div>
+        </div>
+        <div class="cert-card fade-in" style="transition-delay:0.2s">
+          <div class="cert-icon">🌿</div>
+          <div>
+            <div class="cert-name">Git & GitHub Bootcamp</div>
+            <div class="cert-meta">Udemy · 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Awards -->
+  <section id="awards" class="sec-pad">
+    <div class="container">
+      <div class="sec-header fade-in">
+        <div class="sec-label">Recognition</div>
+        <h2 class="sec-title">Awards</h2>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card fade-in">
+          <div class="award-title">Promising Stars Empowering the Team</div>
+          <div class="award-org">Swadesh Softwares Pvt. Ltd.</div>
+          <div class="award-year">2022</div>
+        </div>
+        <div class="award-card fade-in" style="transition-delay:0.1s">
+          <div class="award-title">Lakshmi Narayana Memorial Award</div>
+          <div class="award-org">Topper · Mallabhum Institute of Technology</div>
+          <div class="award-year">2018</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Contact -->
+  <section id="contact" class="sec-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="fade-in">
+          <div class="sec-label">Say Hello</div>
+          <h2 class="contact-info-title">Let's work<br><em style="font-style:italic;color:var(--accent2)">together</em></h2>
+          <p class="contact-info-desc">
+            Feel free to reach out if you have a project in mind, an opportunity to discuss,
+            or just want to connect. I'll get back to you as soon as possible.
+          </p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              Ramjibanpur, Paschim Medinipur, West Bengal – 721242
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              9064884148
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              gourabmal4@gmail.com
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🌐</div>
+              gourabmal.github.io
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/gourabmal/" class="contact-social" target="_blank" rel="noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/gourabmal" class="contact-social" target="_blank" rel="noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://x.com/GourabMal" class="contact-social" target="_blank" rel="noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://gourabsdiary.blogspot.com/" class="contact-social" target="_blank" rel="noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form fade-in" style="transition-delay:0.15s">
+          <form action="https://formsubmit.co/cd5a3e6d8e056990a84791cb371cd184" method="post">
+            <input type="hidden" name="form-name" value="form 1" />
+            <input type="hidden" name="_next" value="https://gourabmal.github.io/thankyou.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none">
+            <div class="form-row">
+              <label class="form-label" for="name">Name</label>
+              <input required type="text" class="form-input" id="name" name="name" placeholder="Your name" />
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="email">Email</label>
+              <input required type="email" class="form-input" id="email" name="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="message">Message</label>
+              <textarea required class="form-textarea" id="message" name="message" placeholder="Tell me about your project or opportunity..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">Gourab<span style="color:var(--accent)">.</span></div>
+    <div class="footer-copy">
+      © <span id="year"></span> Gourab Mal · Built with care ·
+      <a href="https://gourabmal.github.io/" target="_blank">gourabmal.github.io</a>
     </div>
   </footer>
 
-  <script src="js/index.js"></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Hamburger menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Trigger hero immediately
+    setTimeout(() => {
+      document.querySelector('#hero .fade-in')?.classList.add('visible');
+    }, 100);
+  </script>
 </body>
-
 </html>
