@@ -42,7 +42,6 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent2); }
 
-    /* ── Noise texture ───────────────────── */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -52,373 +51,131 @@
       opacity: 0.4;
     }
 
-    /* ── Orbs ────────────────────────────── */
-    .orb {
-      position: fixed; border-radius: 50%;
-      filter: blur(130px); pointer-events: none; z-index: 0;
-    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(130px); pointer-events: none; z-index: 0; }
     .orb-1 { width: 500px; height: 500px; background: #4F8EF7; opacity: 0.07; top: -180px; left: -180px; }
     .orb-2 { width: 400px; height: 400px; background: #6B4AFF; opacity: 0.06; bottom: 5%; right: -100px; }
 
-    /* ── Top bar ─────────────────────────── */
     .topbar {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%;
-      height: 62px;
+      padding: 0 5%; height: 62px;
       background: rgba(12,15,20,0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-    .topbar-logo {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--text);
-    }
+    .topbar-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); }
     .topbar-logo span { color: var(--accent); }
-
     .topbar-actions { display: flex; gap: 0.75rem; align-items: center; }
 
     .btn-back {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.8rem; font-weight: 500;
-      color: var(--text-mid);
-      padding: 0.4rem 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      transition: all 0.2s;
+      font-size: 0.8rem; font-weight: 500; color: var(--text-mid);
+      padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s;
     }
     .btn-back:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
 
     .btn-print {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.8rem; font-weight: 600;
-      color: #fff;
-      background: var(--accent);
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      transition: all 0.2s;
-      cursor: pointer; border: none;
+      font-size: 0.8rem; font-weight: 600; color: #fff;
+      background: var(--accent); padding: 0.4rem 1rem; border-radius: 6px;
+      transition: all 0.2s; cursor: pointer; border: none;
     }
     .btn-print:hover { background: var(--accent2); }
 
-    /* ── Page wrapper ────────────────────── */
     .page {
       position: relative; z-index: 1;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 48px 5% 80px;
+      max-width: 900px; margin: 0 auto; padding: 48px 5% 80px;
     }
 
-    /* ── Header card ─────────────────────── */
     .cv-header {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2.4rem 2.8rem;
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+      padding: 2.4rem 2.8rem; margin-bottom: 2rem;
+      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+      position: relative; overflow: hidden;
     }
     .cv-header::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, var(--accent), #6B4AFF, var(--gold));
     }
 
-    .cv-name {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      color: var(--text);
-      line-height: 1.1;
-      margin-bottom: 0.3rem;
-    }
-    .cv-title {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .cv-summary {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 480px;
-    }
+    .cv-name { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); color: var(--text); line-height: 1.1; margin-bottom: 0.3rem; }
+    .cv-title { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold); margin-bottom: 1rem; }
+    .cv-summary { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; max-width: 480px; }
 
-    .cv-contact {
-      display: flex; flex-direction: column; gap: 0.55rem;
-      align-items: flex-end;
-      text-align: right;
-    }
-    .cv-contact-item {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.83rem;
-      color: var(--text-mid);
-      justify-content: flex-end;
-    }
-    .cv-contact-item .icon {
-      font-size: 0.85rem;
-      opacity: 0.6;
-    }
+    .cv-contact { display: flex; flex-direction: column; gap: 0.55rem; align-items: flex-end; text-align: right; }
+    .cv-contact-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.83rem; color: var(--text-mid); justify-content: flex-end; }
+    .cv-contact-item .icon { font-size: 0.85rem; opacity: 0.6; }
 
-    /* ── Two-column layout ───────────────── */
-    .cv-body {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 1.5rem;
-      align-items: start;
-    }
+    .cv-body { display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
 
-    /* ── Section card ────────────────────── */
-    .cv-section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 1.5rem;
-    }
+    .cv-section { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem 2rem; margin-bottom: 1.5rem; }
     .cv-section:last-child { margin-bottom: 0; }
 
     .section-label {
       display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.4rem;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.4rem;
     }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, rgba(79,142,247,0.3), transparent);
-    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(79,142,247,0.3), transparent); }
 
-    /* ── Experience items ────────────────── */
     .exp-item { margin-bottom: 1.6rem; }
     .exp-item:last-child { margin-bottom: 0; }
-
-    .exp-top {
-      display: flex; justify-content: space-between;
-      align-items: flex-start; gap: 1rem;
-      margin-bottom: 0.2rem;
-      flex-wrap: wrap;
-    }
-    .exp-role {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-    .exp-date {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(79,142,247,0.1);
-      padding: 0.2rem 0.65rem;
-      border-radius: 4px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .exp-company {
-      font-size: 0.83rem;
-      color: var(--accent2);
-      font-style: italic;
-      margin-bottom: 0.8rem;
-    }
+    .exp-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
+    .exp-role { font-family: var(--serif); font-size: 1.05rem; color: var(--text); }
+    .exp-date { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); background: rgba(79,142,247,0.1); padding: 0.2rem 0.65rem; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+    .exp-company { font-size: 0.83rem; color: var(--accent2); font-style: italic; margin-bottom: 0.8rem; }
     .exp-company span { color: var(--text-dim); font-style: normal; margin-left: 0.3rem; }
+    .exp-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .exp-list li { font-size: 0.87rem; color: var(--text-mid); padding-left: 1.2rem; position: relative; font-weight: 300; line-height: 1.55; }
+    .exp-list li::before { content: '↳'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.05rem; }
+    .exp-divider { height: 1px; background: var(--border); margin: 1.4rem 0; }
 
-    .exp-list {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 0.45rem;
-    }
-    .exp-list li {
-      font-size: 0.87rem;
-      color: var(--text-mid);
-      padding-left: 1.2rem;
-      position: relative;
-      font-weight: 300;
-      line-height: 1.55;
-    }
-    .exp-list li::before {
-      content: '↳';
-      position: absolute; left: 0;
-      color: var(--accent);
-      font-size: 0.75rem;
-      top: 0.05rem;
-    }
-
-    .exp-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 1.4rem 0;
-    }
-
-    /* ── Projects ────────────────────────── */
     .proj-item { margin-bottom: 1.4rem; }
     .proj-item:last-child { margin-bottom: 0; }
-
-    .proj-name {
-      font-family: var(--serif);
-      font-size: 0.98rem;
-      color: var(--accent2);
-      margin-bottom: 0.5rem;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .proj-name::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .proj-desc {
-      font-size: 0.85rem;
-      color: var(--text-mid);
-      line-height: 1.6;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-    }
-
-    .proj-tags {
-      display: flex; flex-wrap: wrap; gap: 0.35rem;
-    }
-    .proj-tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      background: rgba(79,142,247,0.08);
-      color: var(--accent2);
-      border: 1px solid rgba(79,142,247,0.15);
-    }
-
+    .proj-name { font-family: var(--serif); font-size: 0.98rem; color: var(--accent2); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .proj-name::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .proj-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; margin-bottom: 0.5rem; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .proj-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 4px; background: rgba(79,142,247,0.08); color: var(--accent2); border: 1px solid rgba(79,142,247,0.15); }
     .proj-divider { height: 1px; background: var(--border); margin: 1.2rem 0; }
 
-    /* ── Sidebar ─────────────────────────── */
-    .sidebar .cv-section { margin-bottom: 1.5rem; }
-
-    /* Skills */
     .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-    .skill-chip {
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 0.3rem 0.75rem;
-      border-radius: 6px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text-mid);
-      transition: all 0.15s;
-    }
-    .skill-chip:hover {
-      border-color: rgba(79,142,247,0.4);
-      color: var(--accent2);
-    }
+    .skill-chip { font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 6px; background: var(--surface2); border: 1px solid var(--border); color: var(--text-mid); transition: all 0.15s; }
+    .skill-chip:hover { border-color: rgba(79,142,247,0.4); color: var(--accent2); }
 
-    /* Education */
-    .edu-school {
-      font-family: var(--serif);
-      font-size: 0.98rem;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-    }
-    .edu-degree {
-      font-size: 0.83rem;
-      color: var(--accent2);
-      font-style: italic;
-      margin-bottom: 0.3rem;
-    }
-    .edu-meta {
-      display: flex; gap: 0.8rem; align-items: center;
-      flex-wrap: wrap;
-    }
+    .skill-chip.ai { background: rgba(107,74,255,0.08); border-color: rgba(107,74,255,0.2); color: #a78bfa; }
+    .skill-chip.crm { background: rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.2); color: #fdba74; }
+    .skill-chip.email { background: rgba(232,121,249,0.08); border-color: rgba(232,121,249,0.2); color: #f0abfc; }
+    .skill-chip.tool { background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.2); color: #6ee7b7; }
+
+    .skill-group { margin-bottom: 1rem; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
+
+    .edu-school { font-family: var(--serif); font-size: 0.98rem; color: var(--text); margin-bottom: 0.2rem; }
+    .edu-degree { font-size: 0.83rem; color: var(--accent2); font-style: italic; margin-bottom: 0.3rem; }
+    .edu-meta { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
     .edu-date { font-size: 0.75rem; color: var(--text-dim); }
-    .edu-gpa {
-      font-size: 0.72rem; font-weight: 700;
-      background: rgba(201,168,76,0.12);
-      color: var(--gold);
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      border: 1px solid rgba(201,168,76,0.2);
-    }
+    .edu-gpa { font-size: 0.72rem; font-weight: 700; background: rgba(201,168,76,0.12); color: var(--gold); padding: 0.15rem 0.55rem; border-radius: 4px; border: 1px solid rgba(201,168,76,0.2); }
 
-    /* Certs */
-    .cert-item {
-      display: flex; gap: 0.7rem; align-items: flex-start;
-      margin-bottom: 0.85rem;
-    }
+    .cert-item { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.85rem; }
     .cert-item:last-child { margin-bottom: 0; }
-    .cert-dot {
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      margin-top: 0.35rem;
-      flex-shrink: 0;
-    }
-    .cert-name {
-      font-size: 0.83rem;
-      color: var(--text);
-      font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 0.15rem;
-    }
+    .cert-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-top: 0.35rem; flex-shrink: 0; }
+    .cert-name { font-size: 0.83rem; color: var(--text); font-weight: 500; line-height: 1.4; margin-bottom: 0.15rem; }
     .cert-meta { font-size: 0.73rem; color: var(--text-dim); }
 
-    /* Awards */
     .award-item { margin-bottom: 1rem; }
     .award-item:last-child { margin-bottom: 0; }
-    .award-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gold);
-      margin-bottom: 0.15rem;
-      line-height: 1.4;
-    }
+    .award-title { font-size: 0.85rem; font-weight: 600; color: var(--gold); margin-bottom: 0.15rem; line-height: 1.4; }
     .award-org { font-size: 0.77rem; color: var(--text-dim); }
 
-    /* Languages */
     .lang-wrap { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-    .lang-chip {
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 0.3rem 0.85rem;
-      border-radius: 20px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text-mid);
-    }
+    .lang-chip { font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.85rem; border-radius: 20px; background: var(--surface2); border: 1px solid var(--border); color: var(--text-mid); }
 
-    /* Interests */
-    .interest-text {
-      font-size: 0.85rem;
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.6;
-      font-style: italic;
-    }
+    .interest-text { font-size: 0.85rem; color: var(--text-mid); font-weight: 300; line-height: 1.6; font-style: italic; }
 
-    .logo-img {
-        height: 120px;
-        width: auto;
-        object-fit: contain;
-        margin-top: 15px;
-        margin-left: -48px;
-    }
+    .logo-img { height: 120px; width: auto; object-fit: contain; margin-top: 15px; margin-left: -48px; }
 
-    /* ── Print ───────────────────────────── */
     @media print {
       body::before, .orb, .topbar { display: none; }
       body { background: #fff; color: #111; }
@@ -433,7 +190,6 @@
       .edu-gpa { background: #fef9c3; color: #854d0e; border-color: #fde047; }
     }
 
-    /* ── Responsive ──────────────────────── */
     @media (max-width: 720px) {
       .cv-header { grid-template-columns: 1fr; }
       .cv-contact { align-items: flex-start; text-align: left; }
@@ -447,7 +203,6 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <!-- Top bar -->
   <div class="topbar">
     <a class="topbar-logo" href="https://gourabmal.github.io/"><img src="assets/logo/GM__ logo.png" alt="Gourab Mal Logo" class="logo-img"></a>
     <div class="topbar-actions">
@@ -465,9 +220,9 @@
         <p class="cv-title">Senior Engineer – Web</p>
         <p class="cv-summary">
           Results-driven Senior Engineer – Web with 5+ years of experience building scalable,
-          high-performance web applications. Expertise in Laravel, Node.js, Vue.js, and modern
-          backend systems. Strong focus on Generative AI and AI integrations, with hands-on
-          experience building intelligent automation tools and SEO-driven content systems.
+          high-performance web applications. Expertise in Laravel, Node.js, Vue.js, WordPress, and modern
+          backend systems. Strong focus on Generative AI, AI agents, and LLM-powered automation,
+          with hands-on experience building intelligent workflows, RAG pipelines, and SEO-driven content systems.
         </p>
       </div>
       <div class="cv-contact">
@@ -503,9 +258,10 @@
             </div>
             <div class="exp-company">Codeclouds IT Solutions Pvt. Ltd. <span>· Kolkata</span></div>
             <ul class="exp-list">
-              <li>Designed and developed scalable web applications using Laravel, Node.js, and Vue.js</li>
+              <li>Designed and developed scalable web applications using Laravel, Node.js, Vue.js, and WordPress</li>
               <li>Built and integrated AI-powered features for content generation and SEO optimization</li>
-              <li>Integrated third-party APIs, payment gateways, and automation tools</li>
+              <li>Developed AI agents and LLM-powered workflows using n8n, RAG pipelines, and vector databases</li>
+              <li>Integrated third-party APIs, payment gateways, CRM platforms, and automation tools</li>
               <li>Collaborated with cross-functional teams to deliver high-quality, production-ready solutions</li>
               <li>Managed deployments, server configurations, and version control (Git/GitHub)</li>
             </ul>
@@ -534,12 +290,13 @@
           <div class="proj-item">
             <div class="proj-name">AI Article Generator & SEO Optimizer (WordPress Plugin)</div>
             <p class="proj-desc">
-              Custom WordPress plugin integrating Generative AI (Claude) for automated content creation
-              and SEO optimization. Implemented keyword analysis, content structuring, and ranking
+              Custom WordPress/WooCommerce plugin integrating Generative AI (Claude) for automated content
+              creation and SEO optimization. Implemented keyword analysis, content structuring, and ranking
               suggestions. Reduced manual content effort through AI-driven automation.
             </p>
             <div class="proj-tags">
               <span class="proj-tag">WordPress</span>
+              <span class="proj-tag">WooCommerce</span>
               <span class="proj-tag">Claude AI</span>
               <span class="proj-tag">PHP</span>
               <span class="proj-tag">Generative AI</span>
@@ -550,30 +307,59 @@
           <div class="proj-divider"></div>
 
           <div class="proj-item">
-            <div class="proj-name">E-commerce Platforms</div>
+            <div class="proj-name">High Quality Meats – E-commerce Platform</div>
             <p class="proj-desc">
-              Developed multiple scalable platforms with user authentication, payment gateway
-              integration, and full admin dashboards.
+              A successful e-commerce platform for meat products with full order management, admin dashboard, and seamless payment integration via REST APIs.
             </p>
             <div class="proj-tags">
+              <span class="proj-tag">E-commerce</span>
               <span class="proj-tag">Laravel</span>
-              <span class="proj-tag">Vue.js</span>
-              <span class="proj-tag">Stripe</span>
-              <span class="proj-tag">PayPal</span>
+              <span class="proj-tag">REST API</span>
+              <span class="proj-tag">Payment Gateway</span>
             </div>
           </div>
 
           <div class="proj-divider"></div>
 
           <div class="proj-item">
-            <div class="proj-name">Content Management Systems (CMS)</div>
+            <div class="proj-name">CHIPS – Electronics E-commerce</div>
             <p class="proj-desc">
-              Built role-based CMS platforms with scheduling, media handling, and dynamic content control.
+              E-commerce platform for electronics with secure regional payment gateway integrations, SMS notifications, and efficient inventory management.
             </p>
             <div class="proj-tags">
               <span class="proj-tag">Laravel</span>
-              <span class="proj-tag">Role-based Auth</span>
-              <span class="proj-tag">Media Management</span>
+              <span class="proj-tag">MySQL</span>
+              <span class="proj-tag">KNET</span>
+              <span class="proj-tag">MyFatoorah</span>
+              <span class="proj-tag">REST API</span>
+              <span class="proj-tag">SMS Gateway</span>
+            </div>
+          </div>
+
+          <div class="proj-divider"></div>
+
+          <div class="proj-item">
+            <div class="proj-name">Kenosis – Healthcare Assessment Platform</div>
+            <p class="proj-desc">
+              CMS-based patient-focused platform providing feedback and assessments on medical experts across Oncology, Haematology, Transplant, and Critical Care.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">CMS</span>
+              <span class="proj-tag">Laravel</span>
+              <span class="proj-tag">Healthcare</span>
+            </div>
+          </div>
+
+          <div class="proj-divider"></div>
+
+          <div class="proj-item">
+            <div class="proj-name">First Axis Capital – Funding Platform</div>
+            <p class="proj-desc">
+              Fintech platform specializing in fast, reliable funding solutions ensuring funds are delivered within 48 hours with a streamlined CMS-driven application flow.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">CMS</span>
+              <span class="proj-tag">PHP</span>
             </div>
           </div>
 
@@ -602,8 +388,9 @@
         <!-- Skills -->
         <div class="cv-section">
           <div class="section-label">Skills</div>
-          <div style="margin-bottom:0.8rem">
-            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">Backend</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Backend</div>
             <div class="skills-wrap">
               <span class="skill-chip">Laravel</span>
               <span class="skill-chip">PHP</span>
@@ -611,30 +398,78 @@
               <span class="skill-chip">Express.js</span>
             </div>
           </div>
-          <div style="margin-bottom:0.8rem">
-            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">Frontend</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Frontend</div>
             <div class="skills-wrap">
               <span class="skill-chip">Vue.js</span>
               <span class="skill-chip">JavaScript</span>
-              <span class="skill-chip">HTML</span>
               <span class="skill-chip">jQuery</span>
+              <span class="skill-chip">HTML/CSS</span>
             </div>
           </div>
-          <div style="margin-bottom:0.8rem">
-            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">Database & Tools</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Database & DevOps</div>
             <div class="skills-wrap">
               <span class="skill-chip">MySQL</span>
-              <span class="skill-chip">Git</span>
+              <span class="skill-chip">MongoDB</span>
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">Git & GitHub</span>
               <span class="skill-chip">REST APIs</span>
-              <span class="skill-chip">AJAX</span>
             </div>
           </div>
-          <div>
-            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem">AI & Modern Tech</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">CMS & E-commerce</div>
             <div class="skills-wrap">
-              <span class="skill-chip">Generative AI</span>
-              <span class="skill-chip">AI Integration</span>
-              <span class="skill-chip">Prompt Engineering</span>
+              <span class="skill-chip">WordPress</span>
+              <span class="skill-chip">WooCommerce</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">AI & Automation</div>
+            <div class="skills-wrap">
+              <span class="skill-chip ai">Generative AI</span>
+              <span class="skill-chip ai">AI Agents & LLM Orchestration</span>
+              <span class="skill-chip ai">n8n Workflow Automation</span>
+              <span class="skill-chip ai">RAG Pipelines</span>
+              <span class="skill-chip ai">Vector Databases</span>
+              <span class="skill-chip ai">Multi-LLM Integrations</span>
+              <span class="skill-chip ai">MCP Workflows</span>
+              <span class="skill-chip ai">Prompt Engineering</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">CRM Platforms</div>
+            <div class="skills-wrap">
+              <span class="skill-chip crm">Sticky CRM</span>
+              <span class="skill-chip crm">Konnektive</span>
+              <span class="skill-chip crm">Checkout Champ</span>
+              <span class="skill-chip crm">Vrio CRM</span>
+              <span class="skill-chip crm">Sublytics</span>
+              <span class="skill-chip crm">29Next</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Email Marketing</div>
+            <div class="skills-wrap">
+              <span class="skill-chip email">Klaviyo</span>
+              <span class="skill-chip email">Maropost</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Task & Collaboration</div>
+            <div class="skills-wrap">
+              <span class="skill-chip tool">Jira</span>
+              <span class="skill-chip tool">ClickUp</span>
+              <span class="skill-chip tool">Asana</span>
+              <span class="skill-chip tool">Trello</span>
+              <span class="skill-chip tool">Slack</span>
             </div>
           </div>
         </div>
@@ -656,7 +491,21 @@
           <div class="cert-item">
             <div class="cert-dot"></div>
             <div>
+              <div class="cert-name">AI Automation: Build LLM Apps & AI-Agents with n8n & APIs</div>
+              <div class="cert-meta">Udemy · 2026</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
               <div class="cert-name">ChatGPT Masters: Generative AI, Prompt Engineering</div>
+              <div class="cert-meta">Udemy · 2024</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">Vue Developer Bootcamp</div>
               <div class="cert-meta">Udemy · 2024</div>
             </div>
           </div>
@@ -670,15 +519,15 @@
           <div class="cert-item">
             <div class="cert-dot"></div>
             <div>
-              <div class="cert-name">Vue Developer Bootcamp</div>
-              <div class="cert-meta">Udemy · 2024</div>
+              <div class="cert-name">Git & GitHub Bootcamp</div>
+              <div class="cert-meta">Udemy · 2025</div>
             </div>
           </div>
           <div class="cert-item">
             <div class="cert-dot"></div>
             <div>
-              <div class="cert-name">Git & GitHub Bootcamp</div>
-              <div class="cert-meta">Udemy · 2025</div>
+              <div class="cert-name">Introduction to Programming in C — Elite</div>
+              <div class="cert-meta">NPTEL · IIT Kanpur · 2017</div>
             </div>
           </div>
         </div>
