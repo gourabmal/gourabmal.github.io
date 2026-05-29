@@ -534,10 +534,9 @@
   <section class="hero">
     <div class="hero-eyebrow">Intelligent Customer Support Platform</div>
     <h1 class="hero-title">AI Support,<br><em>Human When</em><br>It Matters</h1>
-    <p class="hero-sub-title">A hybrid AI &amp; human support platform</p>
+    <p class="hero-sub-title">AI-powered customer support with human takeover</p>
     <p class="hero-desc">
-      SitePilot AI combines the power of Google Gemini with seamless human agent 
-      intervention — delivering instant, accurate support while keeping a human in the loop.
+      SitePilot AI is a hybrid customer support system built using Laravel, n8n, Google Gemini, Supabase Realtime, and Telegram. It delivers instant AI responses while allowing seamless human-agent takeover whenever needed.
     </p>
     <div class="hero-cta">
       <a href="#demo" class="btn btn-primary">
@@ -584,7 +583,7 @@
             </div>
           </div>
           <video controls preload="metadata">
-            <source src="assets/video/SitePilot-demo.mp4" type="video/mp4">
+            <source src="SitePilot-demo.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -673,8 +672,8 @@
         </div>
         <div class="feature-card">
           <div class="feature-icon" style="background:rgba(61,232,176,0.1)">💬</div>
-          <h3>Embeddable Chat Widget</h3>
-          <p>A lightweight, drop-in chat widget that works on any website. Customers get instant support without leaving the page or creating accounts.</p>
+          <h3>Website Chat Integration</h3>
+          <p>A custom website chat interface connected directly to n8n webhooks. Customer messages are processed by AI, escalated to human agents when needed, and delivered in real time.</p>
         </div>
       </div>
     </div>
@@ -693,9 +692,9 @@
         <div class="flow-step">
           <div class="flow-num">01</div>
           <div class="flow-content">
-            <h4>Customer Opens the Chat Widget</h4>
-            <p>A visitor lands on the website and opens the embedded chat widget. They can ask about products, pricing, features, or services — in plain language.</p>
-            <span class="flow-tag">JavaScript Widget</span>
+            <h4>Customer Sends a Message</h4>
+            <p>A visitor lands on the website and sends a message through the integrated chat interface. Questions about products, pricing, services, or support are instantly forwarded for processing.</p>
+            <span class="flow-tag">Website Interface</span>
           </div>
         </div>
         <div class="flow-step">
@@ -718,7 +717,7 @@
           <div class="flow-num">04</div>
           <div class="flow-content">
             <h4>Supabase Broadcasts in Real Time</h4>
-            <p>The response is written to the database and broadcast via Supabase Realtime WebSockets — appearing in the chat widget immediately, no refresh required.</p>
+            <p>The response is written to the database and broadcast via Supabase Realtime WebSockets — appearing instantly on the website without requiring a page refresh.</p>
             <span class="flow-tag">Supabase Realtime</span>
           </div>
         </div>
