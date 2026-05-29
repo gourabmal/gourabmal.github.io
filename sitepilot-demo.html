@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SitePilot AI — Project Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0d12;
+      --bg2:       #10121a;
+      --bg3:       #14172100;
+      --card:      #13161f;
+      --border:    rgba(255,255,255,0.07);
+      --border2:   rgba(255,255,255,0.12);
+      --accent:    #4f8ef7;
+      --accent-g:  #3de8b0;
+      --accent-p:  #9b72f7;
+      --text:      #e8eaf2;
+      --muted:     #636880;
+      --muted2:    #8e92a8;
+      --white:     #ffffff;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'Outfit', sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #2a2e42; border-radius: 10px; }
+
+    /* ── AMBIENT BLOBS ── */
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); opacity: 0.18;
+    }
+    .blob-1 { width: 700px; height: 700px; background: #4f8ef7; top: -200px; left: -200px; }
+    .blob-2 { width: 500px; height: 500px; background: #9b72f7; bottom: 0; right: -150px; }
+    .blob-3 { width: 350px; height: 350px; background: #3de8b0; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.08; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px; height: 64px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11,13,18,0.85);
+      backdrop-filter: blur(24px);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--accent); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--muted2); text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
+    .nav-pill {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.74rem; font-weight: 500;
+      color: var(--accent-g);
+      background: rgba(61,232,176,0.08);
+      border: 1px solid rgba(61,232,176,0.2);
+      padding: 5px 13px; border-radius: 100px;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .nav-pill-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent-g);
+      box-shadow: 0 0 8px var(--accent-g);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono);
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+      opacity: 0; animation: riseUp 0.7s ease 0.1s forwards;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; flex: 1; width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent));
+    }
+    .hero-eyebrow::after { background: linear-gradient(270deg, transparent, var(--accent)); }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      max-width: 820px;
+      margin-bottom: 10px;
+      opacity: 0; animation: riseUp 0.7s ease 0.2s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-p) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub-title {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-style: italic;
+      font-weight: 700;
+      color: var(--muted2);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      opacity: 0; animation: riseUp 0.7s ease 0.3s forwards;
+    }
+    .hero-desc {
+      font-size: 1rem; font-weight: 300;
+      color: var(--muted2);
+      max-width: 540px; line-height: 1.75;
+      margin-bottom: 40px;
+      opacity: 0; animation: riseUp 0.7s ease 0.4s forwards;
+    }
+    .hero-cta {
+      display: flex; gap: 12px;
+      opacity: 0; animation: riseUp 0.7s ease 0.5s forwards;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 26px; border-radius: 8px;
+      font-family: var(--sans); font-size: 0.88rem; font-weight: 500;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: all 0.25s;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+    }
+    .btn-primary:hover { background: #6fa1ff; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(79,142,247,0.35); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border2);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* stack chips */
+    .stack-chips {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: center; margin-top: 56px;
+      opacity: 0; animation: riseUp 0.7s ease 0.6s forwards;
+    }
+    .chip {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em;
+      padding: 5px 13px; border-radius: 100px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--muted2); transition: all 0.2s;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,142,247,0.06); }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); opacity: 0; animation: riseUp 0.7s ease 1s forwards;
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(180deg, var(--accent), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.3;transform:scaleY(0.5)} }
+
+    @keyframes riseUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION COMMON ── */
+    section { position: relative; z-index: 1; }
+    .section-inner {
+      max-width: 1080px; margin: 0 auto; padding: 100px 40px;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); opacity: 0.4; }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--white); margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-sub {
+      font-size: 0.95rem; font-weight: 300;
+      color: var(--muted2); max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border2), transparent);
+      position: relative; z-index: 1;
+    }
+
+    /* ── VIDEO SECTION ── */
+    .video-section { padding: 0 40px 100px; }
+    .video-outer {
+      max-width: 1000px; margin: 0 auto;
+      position: relative;
+    }
+    /* glow ring */
+    .video-outer::before {
+      content: '';
+      position: absolute; inset: -1px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, rgba(79,142,247,0.4), rgba(155,114,247,0.3), rgba(61,232,176,0.2));
+      z-index: 0;
+    }
+    .video-card {
+      position: relative; z-index: 1;
+      border-radius: 16px; overflow: hidden;
+      background: var(--card);
+      box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7);
+    }
+    /* browser bar */
+    .browser-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 18px;
+      background: #0d1017;
+      border-bottom: 1px solid var(--border);
+    }
+    .b-dots { display: flex; gap: 7px; }
+    .b-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .b-dot.r { background: #ff5f57; }
+    .b-dot.y { background: #febc2e; }
+    .b-dot.g { background: #28c840; }
+    .b-addr {
+      flex: 1; display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 6px; padding: 5px 12px;
+      font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+    }
+    .b-lock { color: var(--accent-g); font-size: 0.7rem; }
+    .b-tabs { display: flex; gap: 4px; }
+    .b-tab {
+      font-family: var(--sans); font-size: 0.72rem;
+      padding: 4px 12px; border-radius: 5px;
+      color: var(--muted); cursor: pointer;
+    }
+    .b-tab.active { background: rgba(79,142,247,0.12); color: var(--accent); }
+    video {
+      display: block; width: 100%; background: #000;
+    }
+    /* caption below video */
+    .video-caption {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 20px; padding: 0 4px;
+    }
+    .video-caption-text {
+      font-size: 0.82rem; color: var(--muted);
+      font-style: italic;
+    }
+    .video-caption-badge {
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em;
+      color: var(--accent-g); background: rgba(61,232,176,0.07);
+      border: 1px solid rgba(61,232,176,0.18); padding: 4px 12px; border-radius: 100px;
+    }
+
+    /* ── PROBLEM STATEMENT ── */
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      margin-top: 56px;
+    }
+    .problem-item {
+      background: var(--card); padding: 32px 36px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: background 0.2s;
+    }
+    .problem-item:hover { background: #191d2c; }
+    .problem-num {
+      font-family: var(--mono); font-size: 0.65rem;
+      font-weight: 500; letter-spacing: 0.1em;
+      color: var(--accent); opacity: 0.5;
+      padding-top: 3px; flex-shrink: 0;
+    }
+    .problem-item h4 {
+      font-family: var(--sans); font-size: 0.95rem;
+      font-weight: 600; color: var(--white);
+      margin-bottom: 6px;
+    }
+    .problem-item p {
+      font-size: 0.85rem; color: var(--muted2);
+      line-height: 1.65;
+    }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 56px;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-p));
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .feature-card:hover { border-color: rgba(79,142,247,0.25); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; margin-bottom: 18px;
+    }
+    .feature-card h3 {
+      font-family: var(--sans); font-size: 0.95rem;
+      font-weight: 600; color: var(--white);
+      margin-bottom: 8px; letter-spacing: -0.01em;
+    }
+    .feature-card p {
+      font-size: 0.83rem; color: var(--muted2);
+      line-height: 1.65;
+    }
+
+    /* ── HOW IT WORKS / FLOW ── */
+    .flow-wrap { margin-top: 64px; position: relative; }
+    .flow-track {
+      position: absolute; left: 30px; top: 12px; bottom: 12px; width: 1px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-p), var(--accent-g));
+      opacity: 0.25;
+    }
+    .flow-step {
+      display: flex; gap: 32px; align-items: flex-start;
+      padding: 28px 0; padding-left: 12px;
+    }
+    .flow-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg2); border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 0.7rem;
+      font-weight: 500; color: var(--accent);
+      position: relative; z-index: 1;
+      margin-left: 12px;
+    }
+    .flow-content { padding-top: 4px; }
+    .flow-content h4 {
+      font-family: var(--sans); font-size: 0.95rem;
+      font-weight: 600; color: var(--white);
+      margin-bottom: 6px;
+    }
+    .flow-content p {
+      font-size: 0.85rem; color: var(--muted2); line-height: 1.65;
+    }
+    .flow-tag {
+      display: inline-block; margin-top: 10px;
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.08em; padding: 3px 10px;
+      border-radius: 100px; background: rgba(79,142,247,0.07);
+      border: 1px solid rgba(79,142,247,0.15); color: var(--accent);
+    }
+
+    /* ── TECH STACK ── */
+    .tech-wrap {
+      margin-top: 56px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .tech-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px;
+      text-align: center; transition: all 0.2s;
+    }
+    .tech-item:hover { border-color: rgba(79,142,247,0.3); background: rgba(79,142,247,0.04); }
+    .tech-icon { font-size: 1.3rem; margin-bottom: 8px; }
+    .tech-item span {
+      display: block; font-size: 0.75rem;
+      font-weight: 500; color: var(--muted2);
+    }
+
+    /* ── BENEFITS ── */
+    .benefits-wrap {
+      margin-top: 56px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .benefit-row {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 22px;
+      transition: all 0.2s;
+    }
+    .benefit-row:hover { border-color: rgba(61,232,176,0.25); }
+    .benefit-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(61,232,176,0.1); border: 1px solid rgba(61,232,176,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; color: var(--accent-g); flex-shrink: 0;
+    }
+    .benefit-row span {
+      font-size: 0.88rem; font-weight: 400; color: var(--text);
+    }
+
+    /* ── FUTURE ── */
+    .future-wrap {
+      margin-top: 56px;
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .future-pill {
+      font-size: 0.8rem; font-weight: 500;
+      padding: 8px 18px; border-radius: 100px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--muted2); transition: all 0.2s;
+    }
+    .future-pill:hover {
+      border-color: var(--accent-p); color: var(--accent-p);
+      background: rgba(155,114,247,0.06);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 36px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: var(--serif); font-style: italic;
+      font-size: 1.1rem; font-weight: 700; color: var(--white);
+    }
+    .footer-logo span { font-style: normal; color: var(--accent); }
+    .footer-stack {
+      font-size: 0.78rem; color: var(--muted);
+      font-family: var(--mono); letter-spacing: 0.04em;
+    }
+    .footer-by {
+      font-size: 0.8rem; color: var(--muted);
+    }
+    .footer-by a { color: var(--accent); text-decoration: none; }
+    .footer-by a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-right .nav-link { display: none; }
+      .section-inner { padding: 72px 20px; }
+      .hero { padding: 100px 20px 72px; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .benefits-wrap { grid-template-columns: 1fr; }
+      .tech-wrap { grid-template-columns: repeat(3, 1fr); }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
+      .video-section { padding: 0 16px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AMBIENT -->
+  <div class="ambient">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Site<span>Pilot</span> AI</div>
+    <div class="nav-right">
+      <a href="#demo" class="nav-link">Demo</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#stack" class="nav-link">Stack</a>
+      <a href="https://gourabmal.github.io/" target="_blank" class="nav-link">Portfolio →</a>
+      <div class="nav-pill"><div class="nav-pill-dot"></div>Project Demo</div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero">
+    <div class="hero-eyebrow">Intelligent Customer Support Platform</div>
+    <h1 class="hero-title">AI Support,<br><em>Human When</em><br>It Matters</h1>
+    <p class="hero-sub-title">A hybrid AI &amp; human support platform</p>
+    <p class="hero-desc">
+      SitePilot AI combines the power of Google Gemini with seamless human agent 
+      intervention — delivering instant, accurate support while keeping a human in the loop.
+    </p>
+    <div class="hero-cta">
+      <a href="#demo" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Watch Demo
+      </a>
+      <a href="#features" class="btn btn-outline">Explore Features</a>
+    </div>
+    <div class="stack-chips">
+      <span class="chip">Laravel</span>
+      <span class="chip">n8n</span>
+      <span class="chip">Google Gemini AI</span>
+      <span class="chip">Supabase Realtime</span>
+      <span class="chip">Telegram Bot API</span>
+      <span class="chip">MySQL</span>
+      <span class="chip">Docker</span>
+      <span class="chip">Cloudflare Tunnel</span>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ VIDEO ═══════════════════════════ -->
+  <section id="demo" style="position:relative;z-index:1;">
+    <div class="video-section">
+      <div class="video-outer">
+        <div class="video-card">
+          <div class="browser-bar">
+            <div class="b-dots">
+              <div class="b-dot r"></div>
+              <div class="b-dot y"></div>
+              <div class="b-dot g"></div>
+            </div>
+            <div class="b-addr">
+              <span class="b-lock">🔒</span>
+              sitepilot.ai / live-demo
+            </div>
+            <div class="b-tabs">
+              <div class="b-tab active">Demo</div>
+              <div class="b-tab">Chat</div>
+              <div class="b-tab">Admin</div>
+            </div>
+          </div>
+          <video controls preload="metadata">
+            <source src="assets/SitePilot-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="video-caption" style="max-width:1000px;margin:20px auto 0;">
+        <span class="video-caption-text">Full walkthrough — AI responses, Telegram handoff, and realtime messaging</span>
+        <span class="video-caption-badge">HD Demo · 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════ PROBLEM ═══════════════════════════ -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Problem Statement</div>
+      <h2 class="section-title">Why businesses need<br><em>something smarter</em></h2>
+      <p class="section-sub">Traditional support systems fall short. SitePilot AI was built to fix that.</p>
+      <div class="problem-grid">
+        <div class="problem-item">
+          <div class="problem-num">01</div>
+          <div>
+            <h4>Instant Replies Expected</h4>
+            <p>Customers expect immediate responses at any time. Delayed replies drive frustration and lost business.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-num">02</div>
+          <div>
+            <h4>Agents Can't Be 24/7</h4>
+            <p>Human agents have working hours. AI fills the gap — answering accurately around the clock.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-num">03</div>
+          <div>
+            <h4>Generic Chatbot Responses</h4>
+            <p>Traditional bots give irrelevant, scripted answers. Gemini AI understands context and provides real answers.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-num">04</div>
+          <div>
+            <h4>Escalation Is Complicated</h4>
+            <p>Routing chats to humans usually requires separate systems. SitePilot does it natively via Telegram.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════ FEATURES ═══════════════════════════ -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="section-label">Core Features</div>
+      <h2 class="section-title">Everything in one<br><em>intelligent platform</em></h2>
+      <p class="section-sub">Four major components working together to deliver a seamless hybrid support experience.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(79,142,247,0.1)">🤖</div>
+          <h3>AI-Powered Chatbot</h3>
+          <p>Google Gemini processes every customer query against your product catalog and business data — delivering instant, context-aware responses.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(61,232,176,0.1)">⚡</div>
+          <h3>Supabase Realtime</h3>
+          <p>Messages appear instantly across all clients with no page refresh needed. Built on WebSockets for a true live-chat experience.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(155,114,247,0.1)">👤</div>
+          <h3>Human Agent Takeover</h3>
+          <p>When escalation is needed, agents receive the full conversation on Telegram and reply directly — routed back to the customer in real time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(254,188,46,0.1)">🔄</div>
+          <h3>n8n Workflow Engine</h3>
+          <p>All orchestration — AI routing, Telegram relaying, session management, and AI suppression — is handled visually through n8n automation.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(255,95,87,0.1)">🛡️</div>
+          <h3>Smart AI Suppression</h3>
+          <p>Once a human agent takes over, AI responses are automatically paused — ensuring a coherent, human-led conversation until resolved.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(61,232,176,0.1)">💬</div>
+          <h3>Embeddable Chat Widget</h3>
+          <p>A lightweight, drop-in chat widget that works on any website. Customers get instant support without leaving the page or creating accounts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════ HOW IT WORKS ═══════════════════════════ -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">From message<br><em>to resolution</em></h2>
+      <p class="section-sub">A complete flow — from the first customer message to a resolved conversation.</p>
+      <div class="flow-wrap">
+        <div class="flow-track"></div>
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <div class="flow-content">
+            <h4>Customer Opens the Chat Widget</h4>
+            <p>A visitor lands on the website and opens the embedded chat widget. They can ask about products, pricing, features, or services — in plain language.</p>
+            <span class="flow-tag">JavaScript Widget</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <div class="flow-content">
+            <h4>n8n Receives &amp; Orchestrates</h4>
+            <p>Every message hits an n8n webhook endpoint. The workflow decides whether to route to AI processing, session management, or escalation — all without custom code.</p>
+            <span class="flow-tag">n8n Automation</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <div class="flow-content">
+            <h4>Gemini Generates a Contextual Response</h4>
+            <p>Google Gemini AI analyzes the query against configured product catalog and business information — generating a relevant, accurate reply instantly.</p>
+            <span class="flow-tag">Google Gemini AI</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">04</div>
+          <div class="flow-content">
+            <h4>Supabase Broadcasts in Real Time</h4>
+            <p>The response is written to the database and broadcast via Supabase Realtime WebSockets — appearing in the chat widget immediately, no refresh required.</p>
+            <span class="flow-tag">Supabase Realtime</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">05</div>
+          <div class="flow-content">
+            <h4>Human Agent Takeover via Telegram</h4>
+            <p>If the customer requests a human — or AI cannot handle the query — the conversation is escalated to a Telegram support group. Agents receive customer message, session ID, and full context.</p>
+            <span class="flow-tag">Telegram Bot API</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">06</div>
+          <div class="flow-content">
+            <h4>Agent Replies, AI Pauses</h4>
+            <p>The agent replies directly from Telegram. The response is routed back to the correct customer session in real time. AI responses are paused to ensure a clean, human-led conversation.</p>
+            <span class="flow-tag">Hybrid Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════ TECH STACK ═══════════════════════════ -->
+  <section id="stack">
+    <div class="section-inner">
+      <div class="section-label">Technology Stack</div>
+      <h2 class="section-title">Built with<br><em>modern tools</em></h2>
+      <p class="section-sub">11 technologies working in harmony to power a scalable, real-time support platform.</p>
+      <div class="tech-wrap">
+        <div class="tech-item"><div class="tech-icon">🔴</div><span>Laravel</span></div>
+        <div class="tech-item"><div class="tech-icon">🐘</div><span>PHP</span></div>
+        <div class="tech-item"><div class="tech-icon">🗄️</div><span>MySQL</span></div>
+        <div class="tech-item"><div class="tech-icon">⚡</div><span>Supabase Realtime</span></div>
+        <div class="tech-item"><div class="tech-icon">🔄</div><span>n8n</span></div>
+        <div class="tech-item"><div class="tech-icon">🤖</div><span>Google Gemini AI</span></div>
+        <div class="tech-item"><div class="tech-icon">🟨</div><span>JavaScript</span></div>
+        <div class="tech-item"><div class="tech-icon">🔗</div><span>REST APIs</span></div>
+        <div class="tech-item"><div class="tech-icon">✈️</div><span>Telegram Bot API</span></div>
+        <div class="tech-item"><div class="tech-icon">🐳</div><span>Docker</span></div>
+        <div class="tech-item"><div class="tech-icon">☁️</div><span>Cloudflare Tunnel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════ BENEFITS ═══════════════════════════ -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Business Benefits</div>
+      <h2 class="section-title">What your business<br><em>gains with SitePilot</em></h2>
+      <p class="section-sub">Tangible outcomes for businesses that deploy this hybrid support platform.</p>
+      <div class="benefits-wrap">
+        <div class="benefit-row"><div class="benefit-check">✓</div><span>Reduced customer support costs</span></div>
+        <div class="benefit-row"><div class="benefit-check">✓</div><span>Faster response times — near-instant AI replies</span></div>
+        <div class="benefit-row"><div class="benefit-check">✓</div><span>24/7 AI assistance without human overhead</span></div>
+        <div class="benefit-row"><div class="benefit-check">✓</div><span>Improved customer satisfaction &amp; retention</span></div>
+        <div class="benefit-row"><div class="benefit-check">✓</div><span>Better support team efficiency via Telegram</span></div>
+        <div class="benefit-row"><div class="benefit-check">✓</div><span>Easy integration with any existing website</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════ FUTURE ═══════════════════════════ -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">What's Next</div>
+      <h2 class="section-title">Future<br><em>enhancements</em></h2>
+      <p class="section-sub">The roadmap ahead — extending SitePilot AI into a full-stack support ecosystem.</p>
+      <div class="future-wrap">
+        <span class="future-pill">Multi-agent dashboard</span>
+        <span class="future-pill">Customer ticketing system</span>
+        <span class="future-pill">Knowledge base integration</span>
+        <span class="future-pill">Voice support</span>
+        <span class="future-pill">WhatsApp integration</span>
+        <span class="future-pill">Analytics &amp; reporting</span>
+        <span class="future-pill">AI training dashboard</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer>
+    <div class="footer-logo">Site<span>Pilot</span> AI</div>
+    <div class="footer-stack">Laravel · n8n · Gemini · Supabase · Telegram</div>
+    <div class="footer-by">Built by <a href="https://gourabmal.github.io/" target="_blank">Gourab Mal</a></div>
+  </footer>
+
+</body>
+</html>
