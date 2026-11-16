@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Gourab Mal — Senior Software Engineer</title>
+  <desc id="desc">Portfolio of Gourab Mal. Laravel, PHP, Node.js, Vue.js, and AI integrations.</desc>
+  <rect width="1200" height="630" fill="#f8f7f3"/>
+  <path d="M65 535h1070" stroke="#d9ded8"/>
+  <text x="68" y="108" fill="#176b60" font-family="Lato,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="4">CODE. CONNECT. CREATE.</text>
+  <text x="64" y="260" fill="#172e38" font-family="Lato,Arial,sans-serif" font-size="84" font-weight="700" letter-spacing="-3">Gourab Mal</text>
+  <text x="68" y="323" fill="#176b60" font-family="Lato,Arial,sans-serif" font-size="34">Senior Software Engineer</text>
+  <text x="68" y="403" fill="#43565c" font-family="Lato,Arial,sans-serif" font-size="23">Web applications. APIs. AI integrations.</text>
+  <text x="68" y="450" fill="#617278" font-family="Lato,Arial,sans-serif" font-size="19">Laravel · PHP · Node.js · Vue.js · MySQL</text>
+  <text x="68" y="578" fill="#43565c" font-family="Lato,Arial,sans-serif" font-size="19">gourabmal.github.io</text>
+  <text x="1133" y="578" text-anchor="end" fill="#617278" font-family="Lato,Arial,sans-serif" font-size="16">West Bengal, India</text>
+  <rect x="830" y="157" width="282" height="282" rx="72" fill="#e2eadf" transform="rotate(7 971 298)"/>
+  <g transform="translate(859 186) scale(3.5)">
+    <rect width="64" height="64" rx="15" fill="#172e38"/>
+    <path d="M28 23.5c-2.1-2-4.4-2.8-7-2.2-5 1.1-7.3 5.3-7.3 11 0 6.3 3.1 10.4 8.1 10.4 2.6 0 4.8-.8 6.7-2.5V32h-6.4" fill="none" stroke="#f8f7f3" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M36.5 41.5V22l7.1 10.8L50.5 22v19.5" fill="none" stroke="#b7d7c7" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M24 51h16" stroke="#6fae99" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>
