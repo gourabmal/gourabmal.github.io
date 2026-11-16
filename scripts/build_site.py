@@ -134,8 +134,7 @@ cards = ''
 for n, project in enumerate(projects):
     cards += f'''<article class="project-card" data-category="{project['filter']}"><a class="project-image {project['color']}" href="{project['file']}" aria-label="View {e(project['name'])} project">{project_visual(project)}<span class="project-open" aria-hidden="true">↗</span></a><div class="project-meta"><span>{project['category']}</span><span>0{n+1}</span></div><h3><a href="{project['file']}">{e(project['name'])}</a></h3><p>{project['description']}</p>{tags(project['stack'])}</article>'''
 
-# The website has room for the full portfolio inventory; the downloadable CV
-# deliberately uses a shorter skills section. Preserve both when regenerating.
+# Use the same skills inventory on the homepage and in the HTML CV.
 portfolio_skills = [
     ('Backend & APIs', ['PHP', 'Laravel', 'Node.js', 'Express.js', 'REST APIs', 'WordPress', 'WooCommerce']),
     ('Frontend', ['Vue.js', 'Nuxt.js', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery', 'AJAX']),
@@ -192,18 +191,27 @@ for p in projects:
 # An accessible HTML CV and matching PDF/Word downloads share the same source.
 resume = ''
 in_list = False
+active_section = ''
 for text,style in paragraphs[5:]:
     if style != 'Bullet' and in_list:
         resume += '</ul>'
         in_list = False
-    if style == 'Section': resume += '<h2>'+e(text.title())+'</h2>'
+    if style == 'Section':
+        active_section = text.strip().casefold()
+        resume += '<h2>'+e(text.title())+'</h2>'
+        if active_section == 'technical skills':
+            resume += ''.join(
+                f'<p><strong>{e(name)}:</strong> {e(", ".join(items))}</p>'
+                for name, items in portfolio_skills
+            )
     elif style == 'Role': resume += '<h3>'+e(text)+'</h3>'
     elif style == 'Bullet':
         if not in_list: resume += '<ul>'; in_list = True
         resume += '<li>'+e(text.lstrip('• '))+'</li>'
     elif style == 'Skill':
-        label,items = text.split(':',1)
-        resume += '<p><strong>'+e(label)+':</strong>'+e(items)+'</p>'
+        if active_section != 'technical skills':
+            label,items = text.split(':',1)
+            resume += '<p><strong>'+e(label)+':</strong>'+e(items)+'</p>'
     else: resume += '<p class="'+('resume-meta' if style == 'Meta' else '')+'">'+e(text)+'</p>'
 if in_list: resume += '</ul>'
 (ROOT/'cv.html').write_text(head('Curriculum Vitae','Gourab Mal — professional experience, technical skills, education, and courses. Download the latest CV.','cv.html')+f'''<main id="main" class="shell resume-page"><div class="resume-toolbar"><a class="back-link" href="index.html">← Back to portfolio</a><div><a class="button primary" href="assets/docs/Gourab_Mal_CV.pdf" download>Download PDF ↓</a><a class="button secondary" href="assets/docs/Gourab_Mal_CV.docx" download>Word version ↓</a></div></div><article class="resume-sheet"><h1>Gourab Mal</h1><p class="resume-role">Senior Software Engineer</p><p>West Bengal, India · +91 9064884148 · <a href="mailto:gourabmal4@gmail.com">gourabmal4@gmail.com</a></p><p><a href="https://www.linkedin.com/in/gourabmal/">LinkedIn</a> · <a href="https://github.com/gourabmal">GitHub</a> · <a href="index.html">Portfolio</a></p>{resume}</article></main>'''+footer())
